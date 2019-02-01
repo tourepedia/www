@@ -1,0 +1,64 @@
+{
+  "name": "tourepedia-marketing",
+  "description": "Tourepedia website",
+  "version": "1.0.0",
+  "author": "Sudhir Mitharwal <luckysud4@gmail.com>",
+  "dependencies": {
+    "@mdx-js/mdx": "^0.15.0",
+    "@mdx-js/tag": "^0.15.0",
+    "gatsby": "^2",
+    "gatsby-mdx": "^0.2.0",
+    "gatsby-plugin-google-analytics": "^2.0.8",
+    "gatsby-plugin-manifest": "^2",
+    "gatsby-plugin-offline": "^2",
+    "gatsby-plugin-react-helmet": "^3",
+    "gatsby-plugin-sass": "^2",
+    "gatsby-plugin-sitemap": "^2.0.4",
+    "gatsby-plugin-styled-components": "^3",
+    "gatsby-remark-autolink-headers": "^2",
+    "gatsby-source-filesystem": "^2",
+    "node-sass": "^4.9.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-helmet": "^5.2.0",
+    "react-icons": "^3.0.5",
+    "styled-components": "^3.4.5"
+  },
+  "keywords": [
+    "travel",
+    "tourepedia"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "format": "prettier --write '**/*.js'",
+    "deploy": "yarn build && scp -r public/* tourepedia:~/public_html/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-styled-components": "^1.6.0",
+    "dotenv": "^6.2.0",
+    "eslint": "^5.5.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "gatsby-plugin-react-svg": "^2.0.0",
+    "prettier": "^1.14.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tourepedia/www"
+  }
+}
