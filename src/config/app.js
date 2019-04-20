@@ -4,8 +4,8 @@ module.exports = {
     'Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhutan with Tourepedia and get fully personalized plan',
   keywords: ['travel', 'tourepedia', 'india tour'],
   siteUrl: 'https://tourepedia.com',
-  contactNumber: '+919005505374',
-  email: 'contact@tourepedia.com',
+  contactNumber: '+918950392425',
+  email: 'bookings@tourepedia.com',
   author: 'Sudhir Mitharwal',
   urls: {
     facebook: 'https://www.facebook.com/tourepedia1',
