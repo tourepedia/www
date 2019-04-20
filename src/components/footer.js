@@ -80,10 +80,10 @@ export const Footer = () => {
             <div>
               <address>
                 <div>
-                  C - 9/7, Prem Plaza (2nd floor), Chitrakoot Marg, Vaishali
-                  Nagar, Jaipur
+                  Tourepedia Holidays, Near Sangram Bhawan, Development Area
+                  Taxi Stand, Gangtok
                   <br />
-                  Rajasthan, India, 302021
+                  Sikkim, India, 737101
                   <br />
                   <IconContext.Provider value={{ color: '#ccc' }}>
                     <a
