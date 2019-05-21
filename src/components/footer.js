@@ -102,7 +102,7 @@ export const Footer = () => {
         </div>
         <Divider />
         <div style={{ fontSize: '30px' }}>
-          <IconContext.Provider value={{ color: '#6157f9' }}>
+          <IconContext.Provider value={{ color: '#ec6333' }}>
             <a
               href={AppConfig.urls.facebook}
               target="_blank"

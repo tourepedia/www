@@ -40,14 +40,14 @@ const StyledContacts = Styled.div`
       > a {
         display: inline-block;
         padding: 8px 1em;
-        color: #6157f9;
+        color: #ec6333;
         text-decoration: none;
-        border: 1px solid #6157f9;
+        border: 1px solid #ec6333;
         line-height: 1;
         border-radius: 5px;
         &:hover {
           color: white;
-          background: #6157f9;
+          background: #ec6333;
         }
       }
     }
