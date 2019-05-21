@@ -1,4 +1,4 @@
-$brand-color: #6157f9;
+$brand-color: #ec6333;
 
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
@@ -364,9 +364,9 @@ html {
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,600');
 body {
-  font-family: 'Roboto Slab', monospace;
+  font-family: 'Nunito', sans-serif;
   line-height: 1.6;
   background: white;
   color: rgba(0, 0, 0, 0.84);
@@ -387,7 +387,7 @@ h5,
 h6,
 b,
 strong {
-  font-weight: 700;
+  font-weight: 600;
 }
 h1 {
   font-size: 2em;

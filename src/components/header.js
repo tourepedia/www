@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Icon from './../images/icon.png'
+import Icon from './../images/logo.jpg'
 import Styled from 'styled-components'
 
 const StyledHeader = Styled.nav`
   background: white;
-  border-top: 7px solid #6C63FF;
+  border-top: 7px solid #ec6333;
   a {
     padding: 0.8rem 0.9rem;
     display: inline-block;
@@ -43,7 +43,7 @@ export const Header = () => {
         <div className="d--flex justify-content--between">
           <h1>
             <Link to="/">
-              <img src={Icon} alt="Brand" />
+              <img src={Icon} alt="Brand" style={{ maxHeight: '40px' }} />
               Tourepedia
             </Link>
           </h1>
