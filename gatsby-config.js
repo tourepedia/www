@@ -1,4 +1,5 @@
 const siteData = require('./src/config/app')
+const theme = require('./src/config/theme')
 
 const activeEnv = process.env.APP_ENV || process.env.NODE_ENV || 'development'
 
@@ -19,8 +20,8 @@ const config = {
         name: 'Tourepedia',
         short_name: 'Tourepedia',
         start_url: '/?from=mobile',
-        background_color: '#6C63FF',
-        theme_color: '#6C63FF',
+        background_color: theme.brand,
+        theme_color: theme.brand,
         display: 'standalone',
         icon: 'src/images/logo.jpg', // This path is relative to the root of the site.
       },

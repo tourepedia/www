@@ -20,6 +20,9 @@ const Main = Styled.main`
       color: inherit;
       text-decoration: none;
     }
+    h3 {
+      margin: 0;
+    }
   }
 
   & > ul > li + li {
@@ -30,8 +33,9 @@ const Header = Styled.header`
   margin-bottom: 40px;
   text-align: center;
   h2 {
-    font-weight: normal;
+    font-weight: bold;
     margin: 0 0 20px;
+    font-size: 2rem;
   }
   p {
     color: #333;
@@ -50,15 +54,14 @@ const IndexPage = ({ data }) => (
       <Main role="main">
         <Header>
           <h2>Travel Inspirational Blogs</h2>
-          <p>Read blogs related to places and tours</p>
         </Header>
         <ul>
           {data.allMdx.edges.map(
             ({ node: { id, fields, frontmatter, excerpt, timeToRead } }) => (
               <li key={id}>
                 <Link to={`/blogs/@${frontmatter.username}/${fields.slug}`}>
-                  <h2>{frontmatter.title}</h2>
-                  <p>
+                  <h3>{frontmatter.title}</h3>
+                  <div>
                     <small>
                       <StopPropagation>
                         <em>
@@ -69,7 +72,7 @@ const IndexPage = ({ data }) => (
                         </em>
                       </StopPropagation>
                     </small>
-                  </p>
+                  </div>
                   <p>{excerpt}</p>
                   {frontmatter.tags.split(',').map(tag => (
                     <code key={tag}>{tag}</code>

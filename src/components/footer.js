@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import {
   IoLogoLinkedin,
@@ -9,7 +9,7 @@ import {
   IoIosMail,
 } from 'react-icons/io'
 import { IconContext } from 'react-icons'
-import Styled from 'styled-components'
+import Styled, { ThemeContext } from 'styled-components'
 
 import AppConfig from 'config/app'
 
@@ -58,6 +58,7 @@ const MenuList = Styled.ul`
 `
 
 export const Footer = () => {
+  const theme = useContext(ThemeContext)
   return (
     <StyledFooter>
       <div className="container">
@@ -102,7 +103,7 @@ export const Footer = () => {
         </div>
         <Divider />
         <div style={{ fontSize: '30px' }}>
-          <IconContext.Provider value={{ color: '#ec6333' }}>
+          <IconContext.Provider value={{ color: theme.brand }}>
             <a
               href={AppConfig.urls.facebook}
               target="_blank"

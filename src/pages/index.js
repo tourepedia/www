@@ -18,11 +18,14 @@ import SEO from 'components/seo'
 const Headline = Styled.section`
   padding: 3% 0 30px;
   h2 {
-    font-size: 2.2em;
+    font-size: 3rem;
     margin: 0;
     margin-bottom: 20px;
     font-weight: normal;
     line-height: 1.2em;
+		@media (max-width: 768px) {
+			font-size: 2rem;
+		}
   }
 `
 const StyledContacts = Styled.div`
@@ -40,21 +43,22 @@ const StyledContacts = Styled.div`
       > a {
         display: inline-block;
         padding: 8px 1em;
-        color: #ec6333;
+        color: inherit;
         text-decoration: none;
-        border: 1px solid #ec6333;
+        border: 2px solid ${props => props.theme.brand};
         line-height: 1;
         border-radius: 5px;
+				font-weight: 600;
         &:hover {
           color: white;
-          background: #ec6333;
+          background: ${props => props.theme.brand};
         }
       }
     }
   }
 `
 const HeroContainer = Styled.section`
-  padding: 60px 0 80px;
+  padding: 3rem 0 4rem;
   p {
     padding: 0;
     margin: 0;
@@ -64,18 +68,28 @@ const HeroContainer = Styled.section`
     max-width: 100%;
     height: auto;
   }
-
+  .trip-image {
+    width: 40%;
+    float: right;
+  }
+  @media (max-width: 425px) {
+    .trip-image {
+      float: none;
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
 `
 
 const Hero = () => (
   <HeroContainer>
-    <div style={{ width: '40%', float: 'right' }}>
+    <div className="trip-image">
       <TripImage />
     </div>
     <div>
       <Headline>
-        <h2>Travel with humans</h2>
-        <p>With you. From start to end.</p>
+        <h2>Pack your Bags and Escape</h2>
+        <h3>You Decide. We make it Happen.</h3>
       </Headline>
       <StyledContacts>
         <div>Contact Us</div>
@@ -146,7 +160,7 @@ const StyledDestinations = Styled.section`
     h2 {
       font-size: 1.6em;
       margin-bottom: 1em;
-      font-weight: normal;
+      font-weight: bold;
     }
     p {
       color: #333;
@@ -160,11 +174,12 @@ const StyledDestinations = Styled.section`
     > li {
       float: left;
       width: 50%;
-      margin-top: 40px;
+      margin-top: 20px;
       box-sizing: border-box;
-			padding: 10px;
+			padding: 10px 15px;
       @media (max-width: 800px) {
         width: 100%;
+        padding: 10px;
       }
     }
   }
@@ -174,7 +189,7 @@ const Destinations = ({ destinations }) => (
   <StyledDestinations>
     <div className="container">
       <header>
-        <h2>You Decide. We make it Happen.</h2>
+        <h2>Destinations</h2>
         <p>
           From ocean to desert, from hills to plains, we got all covered with
           start to end customer support.
@@ -238,7 +253,7 @@ const StyledMain = Styled.div`
 `
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Travel Packages | Hotel Bookings | Transportation | Mice" />
     <StyledMain>
       <div className="container">
         <Hero />
