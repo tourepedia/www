@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import Icon from './../images/logo.jpg'
+import AppConfig from 'config/app'
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -54,7 +55,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: `og:image`,
-                content: Icon,
+                content: AppConfig.siteUrl + Icon,
               },
               {
                 property: `og:site_name`,
@@ -77,8 +78,8 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: metaDescription,
               },
               {
-                property: `twitter:image:src`,
-                content: Icon,
+                property: `twitter:image`,
+                content: AppConfig.siteUrl + Icon,
               },
               {
                 itemprop: `name`,
@@ -90,7 +91,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 itemprop: `image`,
-                content: Icon,
+                content: AppConfig.siteUrl + Icon,
               },
               {
                 name: 'apple-mobile-web-app-capable',

@@ -6,10 +6,7 @@ import Helmet from 'react-helmet'
 import Header from './Header'
 import Footer from './Footer'
 import GlobalStyles from './global-styles'
-
-const theme = {
-  brand: '#ec6333',
-}
+import theme from 'config/theme'
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
