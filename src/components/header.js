@@ -5,7 +5,7 @@ import Styled from 'styled-components'
 
 const StyledHeader = Styled.nav`
   background: white;
-  border-top: 7px solid #ec6333;
+  border-top: 7px solid ${props => props.theme.brand};
   a {
     padding: 0.8rem 0.9rem;
     display: inline-block;
@@ -22,7 +22,7 @@ const StyledHeader = Styled.nav`
     padding: 0;
     margin: 0;
     margin-left: -0.9rem;
-    font-weight: normal;
+		font-weight: bold;
   }
   h1 > a {
     display: flex;
@@ -43,13 +43,20 @@ export const Header = () => {
         <div className="d--flex justify-content--between">
           <h1>
             <Link to="/">
-              <img src={Icon} alt="Brand" style={{ maxHeight: '40px' }} />
+              <img
+                src={Icon}
+                alt="Tourepedia Logo"
+                style={{ maxHeight: '40px' }}
+              />
               Tourepedia
             </Link>
           </h1>
-          <ul>
+          <ul className="d--flex align-items--center">
             <li>
               <Link to="/blogs">Blogs</Link>
+            </li>
+            <li>
+              <a href="https://tourepedia.github.io/tp-ui">Design</a>
             </li>
           </ul>
         </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import Icon from './../images/logo.jpg'
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -29,7 +30,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               lang,
             }}
             title={title}
-            titleTemplate={`${data.site.siteMetadata.title} | %s`}
+            titleTemplate={`${data.site.siteMetadata.title} - %s`}
             meta={[
               {
                 name: `description`,
@@ -48,6 +49,18 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: `website`,
               },
               {
+                property: `og:url`,
+                content: `https://tourepedia.com`,
+              },
+              {
+                property: `og:image`,
+                content: Icon,
+              },
+              {
+                property: `og:site_name`,
+                content: data.site.siteMetadata.title,
+              },
+              {
                 name: `twitter:card`,
                 content: `summary`,
               },
@@ -62,6 +75,22 @@ function SEO({ description, lang, meta, keywords, title }) {
               {
                 name: `twitter:description`,
                 content: metaDescription,
+              },
+              {
+                property: `twitter:image:src`,
+                content: Icon,
+              },
+              {
+                itemprop: `name`,
+                content: title,
+              },
+              {
+                itemprop: `description`,
+                content: metaDescription,
+              },
+              {
+                itemprop: `image`,
+                content: Icon,
               },
               {
                 name: 'apple-mobile-web-app-capable',

@@ -1,14 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Styled from 'styled-components'
+import StopPropagation from 'components/StopPropagation'
 
 import SEO from './seo'
 import Layout from './layout'
 
 const Article = Styled.article`
   padding: 40px 0;
- > h1 {
+  max-width: 680px;
+  margin: auto;
+ > h2 {
     margin-bottom: 0;
+		font-size: 2rem;
  }
  > footer {
    padding: 15px 0 20px;
@@ -16,7 +20,10 @@ const Article = Styled.article`
  }
 `
 
-export const PostLayout = ({ children, pageContext: { frontmatter } }) => (
+export const PostLayout = ({
+  children,
+  pageContext: { frontmatter, timeToRead },
+}) => (
   <Layout>
     <SEO
       title={`${frontmatter.title} - Blogs`}
@@ -24,11 +31,15 @@ export const PostLayout = ({ children, pageContext: { frontmatter } }) => (
     />
     <div className="container">
       <Article>
-        <h1>{frontmatter.title}</h1>
+        <h2>{frontmatter.title}</h2>
         <p>
-          <em>
-            <a href={`mailto:${frontmatter.email}`}>{frontmatter.author}</a>
-          </em>
+          <small>
+            <StopPropagation>
+              <em>
+                <a href={`mailto:${frontmatter.email}`}>{frontmatter.author}</a>
+              </em>
+            </StopPropagation>
+          </small>
         </p>
         <main>{children}</main>
         <footer>
