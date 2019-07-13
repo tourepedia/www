@@ -4,5 +4,7 @@ node_modules
 yarn-error.log
 
 # Build directory
-/public
+/.next
+/out
 .DS_Store
+.env.tokens

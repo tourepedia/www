@@ -1,64 +1,94 @@
 {
-  "name": "tourepedia-marketing",
-  "description": "Tourepedia website",
-  "version": "1.0.0",
-  "author": "Sudhir Mitharwal <luckysud4@gmail.com>",
-  "dependencies": {
-    "@babel/core": "7.4.5",
-    "@babel/preset-react": "7.0.0",
-    "@mdx-js/mdx": "1.0.21",
-    "@mdx-js/react": "1.0.21",
-    "@mdx-js/tag": "^0.15.0",
-    "babel-eslint": "10.0.2",
-    "babel-plugin-styled-components": "1.10.1",
-    "gatsby": "2.10.0",
-    "gatsby-mdx": "0.6.3",
-    "gatsby-plugin-google-analytics": "2.1.0",
-    "gatsby-plugin-manifest": "2.2.0",
-    "gatsby-plugin-offline": "2.2.0",
-    "gatsby-plugin-react-helmet": "3.1.0",
-    "gatsby-plugin-react-svg": "^2.0.0",
-    "gatsby-plugin-sass": "2.1.0",
-    "gatsby-plugin-sitemap": "2.2.0",
-    "gatsby-plugin-styled-components": "3.1.0",
-    "gatsby-remark-autolink-headers": "2.1.0",
-    "gatsby-source-filesystem": "2.1.0",
-    "prop-types": "15.7.2",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "react-helmet": "5.2.1",
-    "react-icons": "3.7.0",
-    "styled-components": "4.3.2"
-  },
-  "keywords": [
-    "travel",
-    "tourepedia"
-  ],
-  "license": "MIT",
+  "name": "@tourepedia/www",
+  "version": "0.0.0-semantic-release",
+  "description": "Tourepedia marking website",
+  "main": "index.js",
   "scripts": {
-    "start": "gatsby develop -p 3001",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "format": "prettier --write '**/*.js'",
-    "deploy": "yarn build && scp -r public/* tourepedia:~/public_html/",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "dotenv": "8.0.0",
-    "eslint": "^5.5.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-config-standard-react": "^7.0.2",
-    "eslint-plugin-babel": "^5.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "prettier": "1.18.2"
+    "start": "env-cmd -f .env.development next -p 4000",
+    "release": "env-cmd -f .env.tokens semantic-release",
+    "commit": "git-cz",
+    "build": "next build && next export",
+    "serve": "next start",
+    "predeploy:testing": "env-cmd -f .env.testing npm run build",
+    "deploy:testing": "scp -r out/* tourepedia:~/public_html/test.tourepedia.com/",
+    "predeploy:production": "env-cmd -f .env.production npm run build",
+    "deploy:production": "scp -r out/* tourepedia:~/public_html/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tourepedia/www"
+    "url": "git+https://github.com/tourepedia/www.git"
+  },
+  "keywords": [
+    "tourepedia",
+    "marking website",
+    "travel in India",
+    "nextjs"
+  ],
+  "author": "Sudhir Mitharwal<luckysud4@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tourepedia/www/issues"
+  },
+  "homepage": "https://github.com/tourepedia/www#readme",
+  "dependencies": {
+    "@svgr/webpack": "^4.3.1",
+    "@types/classnames": "^2.2.9",
+    "@types/node": "^12.6.1",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "classnames": "^2.2.6",
+    "dotenv": "^8.0.0",
+    "next": "^9.0.1",
+    "next-offline": "^4.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "typescript": "^3.5.3",
+    "utility-types": "^3.7.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "commitizen": "^3.1.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "env-cmd": "^9.0.3",
+    "husky": "^3.0.0",
+    "lint-staged": "^9.1.0",
+    "prettier": "^1.18.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{tsx|ts|js|jsx|json|html|css|sass|scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github"
+    ],
+    "ci": false
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false
   }
 }
