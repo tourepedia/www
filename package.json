@@ -3,6 +3,7 @@
   "version": "0.0.0-semantic-release",
   "description": "Tourepedia marking website",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "env-cmd -f .env.development next -p 4000",
     "release": "env-cmd -f .env.tokens semantic-release",
@@ -47,6 +48,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
+    "@semantic-release/changelog": "^3.0.4",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "env-cmd": "^9.0.3",
@@ -81,13 +83,15 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
       [
         "@semantic-release/github",
         {
           "assets": [
-            "package.json"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+            "package.json",
+            "CHANGELOG.md"
+          ]
         }
       ]
     ],
