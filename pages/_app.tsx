@@ -3,6 +3,10 @@ import NextApp, { Container } from 'next/app'
 
 import { ThemeProvider } from '../components/ThemeProvider'
 import GoogleAnalytics from './../components/GoogleAnalytics'
+import { unregister } from './../utils/serviceWorker'
+
+// unregister the service worker
+unregister()
 
 export default class App extends NextApp {
   render() {

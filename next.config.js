@@ -1,20 +1,8 @@
-const withOffline = require('next-offline')
-
 require('dotenv').config({
   path: `.env.development`,
 })
 
-function compose(...funcs) {
-  if (funcs.length === 0) {
-    return arg => arg
-  }
-  if (funcs.length === 1) {
-    return funcs[0]
-  }
-  return funcs.reduce((a, b) => (...args) => a(b(...args)))
-}
-
-module.exports = compose(withOffline)({
+module.exports = {
   exportTrailingSlash: process.env.NODE_ENV === 'production',
   publicRuntimeConfig: {
     bookingsEmail: process.env.BOOKINGS_EMAIL,
@@ -36,4 +24,4 @@ module.exports = compose(withOffline)({
     })
     return config
   },
-})
+}
