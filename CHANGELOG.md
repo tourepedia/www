@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/tourepedia/www/compare/v1.0.4...v1.0.5) (2019-07-15)
+
+
+### Bug Fixes
+
+* **release:** modify release message ([e1af617](https://github.com/tourepedia/www/commit/e1af617))
+
 ## [1.0.4](https://github.com/tourepedia/www/compare/v1.0.3...v1.0.4) (2019-07-15)
 
 
