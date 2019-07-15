@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/tourepedia/www/compare/v1.0.3...v1.0.4) (2019-07-15)
+
+
+### Bug Fixes
+
+* **release:** add git release plugin ([7f854bb](https://github.com/tourepedia/www/commit/7f854bb))
+
 ## [1.0.3](https://github.com/tourepedia/www/compare/v1.0.2...v1.0.3) (2019-07-15)
 
 
