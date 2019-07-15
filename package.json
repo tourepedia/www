@@ -1,6 +1,6 @@
 {
   "name": "@tourepedia/www",
-  "version": "0.0.0-semantic-release",
+  "version": "1.0.2",
   "description": "Tourepedia marking website",
   "main": "index.js",
   "private": true,
@@ -85,15 +85,7 @@
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/npm",
-      [
-        "@semantic-release/github",
-        {
-          "assets": [
-            "package.json",
-            "CHANGELOG.md"
-          ]
-        }
-      ]
+      "@semantic-release/github"
     ],
     "ci": false
   },
