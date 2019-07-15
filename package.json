@@ -1,6 +1,6 @@
 {
   "name": "@tourepedia/www",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tourepedia marking website",
   "main": "index.js",
   "private": true,
@@ -49,6 +49,7 @@
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/git": "^7.0.16",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "env-cmd": "^9.0.3",
@@ -85,7 +86,8 @@
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/npm",
-      "@semantic-release/github"
+      "@semantic-release/github",
+      "@semantic-release/git"
     ],
     "ci": false
   },
