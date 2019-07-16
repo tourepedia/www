@@ -74,9 +74,6 @@ export default function Nav() {
               </a>
             </Link>
           </div>
-          <div>
-            <a href="https://tourepedia.github.io/tp-ui">Design</a>
-          </div>
         </div>
       </Container>
     </nav>
