@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/tourepedia/www/compare/v1.0.5...v1.0.6) (2019-07-16)
+
+
+### Bug Fixes
+
+* **nav:** remove the design link from top nav ([f4ef32d](https://github.com/tourepedia/www/commit/f4ef32d))
+
 ## [1.0.5](https://github.com/tourepedia/www/compare/v1.0.4...v1.0.5) (2019-07-15)
 
 
