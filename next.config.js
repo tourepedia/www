@@ -13,6 +13,7 @@ module.exports = {
     googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION,
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
     publicUrl: process.env.PUBLIC_URL,
+    version: process.env.npm_package_version,
   },
   webpack(config) {
     // add svg/webpack to load the svg files a components
