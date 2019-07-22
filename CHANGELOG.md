@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/tourepedia/www/compare/v1.0.6...v1.1.0) (2019-07-22)
+
+
+### Features
+
+* **version:** show application version in footer ([c73c9bf](https://github.com/tourepedia/www/commit/c73c9bf))
+
 ## [1.0.6](https://github.com/tourepedia/www/compare/v1.0.5...v1.0.6) (2019-07-16)
 
 
