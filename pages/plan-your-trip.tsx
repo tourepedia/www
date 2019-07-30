@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
 
-import { Input, Form, FormState } from '../components/Form'
+import { Input, Form, FormState, Textarea } from '../components/Form'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import { Container, Grid, Col } from '../components/Grid'
@@ -21,6 +21,8 @@ const initialValues = {
   no_of_days: 5,
   no_of_adults: 4,
   no_of_children: 0,
+  hotel_preference: '',
+  comments: '',
 }
 
 function localDateStringToUTCDateString(dateString: string = '') {
@@ -101,7 +103,7 @@ export function PlanYourTripForm({ onSuccess }: { onSuccess?: () => void }) {
             label="Date (approx.)"
             type="date"
             name="start_date"
-            placeholder="dd/mm/yyy"
+            placeholder="dd/mm/yyyy"
           />
         </Col>
         <Col>
@@ -136,8 +138,21 @@ export function PlanYourTripForm({ onSuccess }: { onSuccess?: () => void }) {
             max={1000}
           />
         </Col>
-        <Col></Col>
+        <Col>
+          <Input
+            label="Hotel Preference"
+            type="text"
+            name="hotel_preference"
+            placeholder="4 star"
+          />
+        </Col>
       </Grid>
+      <Textarea
+        label="Any Comments"
+        name="comments"
+        rows={4}
+        placeholder={`It is a family gathering trip and so, we would like to have the best options for stay and food.`}
+      />
       <FormState>
         {({ isSubmitting }) => (
           <Button type="submit" disabled={isSubmitting}>

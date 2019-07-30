@@ -123,6 +123,22 @@ export function FormGroup({
           white-space: pre;
         }
       `}</style>
+      <style global jsx>{`
+        .input {
+          display: block;
+          padding: 7px 15px;
+          border-radius: 5px;
+          background: #fffcfb;
+          border: 1px solid #e3e3e3;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) inset;
+          font-size: 1.25rem;
+        }
+        .input:focus {
+          outline: none;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) inset,
+            0 0 0 3px rgba(66, 153, 225, 0.5);
+        }
+      `}</style>
       {label ? <label htmlFor={id}>{label}</label> : null}
       {children}
     </div>
@@ -138,25 +154,38 @@ export function Input({ label, id, name, ...props }: InputProps) {
   const { values, onChange } = useContext(FormContext)
   return (
     <FormGroup label={label} id={id}>
-      <style jsx>{`
-        input {
-          display: block;
-          padding: 10px 15px;
-          border-radius: 5px;
-          background: #f7fafc;
-          border: 1px solid #e3e3e3;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) inset;
-          font-size: 1.25rem;
-        }
-        input:focus {
-          outline: none;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) inset,
-            0 0 0 3px rgba(66, 153, 225, 0.5);
-        }
-      `}</style>
       <input
         type="text"
         name={name}
+        id={id}
+        className="input"
+        {...props}
+        value={values[name]}
+        onChange={onChange}
+      />
+    </FormGroup>
+  )
+}
+
+interface TextareProps
+  extends Omit<React.HTMLProps<HTMLTextAreaElement>, 'label'> {
+  label?: React.ReactNode
+}
+
+export function Textarea({ label, id, name, ...props }: TextareProps) {
+  id = id || name
+  const { values, onChange } = useContext(FormContext)
+  return (
+    <FormGroup label={label} id={id}>
+      <style jsx>{`
+        textarea {
+          width: 100%;
+          resize: vertical;
+        }
+      `}</style>
+      <textarea
+        name={name}
+        className="input"
         id={id}
         {...props}
         value={values[name]}
