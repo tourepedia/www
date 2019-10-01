@@ -64,7 +64,9 @@ export default function Footer() {
         `}</style>
         <div className="footer-container">
           <section>
-            <Heading>Support</Heading>
+            <Heading>Useful Links</Heading>
+            <A href="/heal-agent">Agents</A>
+            <br />
             <A href="/terms-and-conditions" prefetch={false}>
               Terms and Conditions
             </A>
