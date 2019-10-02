@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/tourepedia/www/compare/v1.1.0...v1.2.0) (2019-10-02)
+
+
+### Features
+
+* **plan-trip:** add hotel preference and comments in the request ([d64eb35](https://github.com/tourepedia/www/commit/d64eb35))
+* **product-page:** init product page ([ab64b63](https://github.com/tourepedia/www/commit/ab64b63))
+
 # [1.1.0](https://github.com/tourepedia/www/compare/v1.0.6...v1.1.0) (2019-07-22)
 
 
