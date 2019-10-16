@@ -19,8 +19,8 @@ export default class App extends NextApp {
         <style key="global" jsx global>{`
           html,
           body {
-            font-family: Nunito, sans-serif;
-            font-weight: 600;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
             font-size: 16px;
             line-height: 1.7;
           }

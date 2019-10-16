@@ -31,10 +31,12 @@ export default class Document extends NextDocument {
           <ThemeConsumer>
             {theme => <meta name="theme-color" content={theme.primary} />}
           </ThemeConsumer>
+          <link rel="dns-prefetch" href="//fonts.gstatic.com" />
           <link
+            href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Nunito:600,700&display=swap"
           />
+
           <Link
             rel="shortcut icon"
             href="/static/favicon.ico"
