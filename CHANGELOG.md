@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/tourepedia/www/compare/v1.2.0...v1.3.0) (2019-10-16)
+
+
+### Features
+
+* **sitemap:** add sitemap and update fonts ([212a255](https://github.com/tourepedia/www/commit/212a255))
+
 # [1.2.0](https://github.com/tourepedia/www/compare/v1.1.0...v1.2.0) (2019-10-02)
 
 
