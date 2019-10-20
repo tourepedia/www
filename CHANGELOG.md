@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/tourepedia/www/compare/v1.3.0...v1.3.1) (2019-10-20)
+
+
+### Bug Fixes
+
+* **sitemap:** showing static assets ([48b8eb7](https://github.com/tourepedia/www/commit/48b8eb7))
+
 # [1.3.0](https://github.com/tourepedia/www/compare/v1.2.0...v1.3.0) (2019-10-16)
 
 
