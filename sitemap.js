@@ -7,4 +7,5 @@ sitemap({
   targetDirectory: 'out/',
   nextConfigPath: path.join(__dirname, 'next.config.js'),
   ignoreIndexFiles: true,
+  ignoredPaths: ['static', '404', '*.xml', '_next'],
 })
