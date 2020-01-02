@@ -5,17 +5,16 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "env-cmd -f .env.development next -p 4000",
+    "dev": "env-cmd -f .env.development next -p 4000",
+    "start": "next start",
     "release": "env-cmd -f .env.tokens semantic-release",
-    "postrelease": "npm run deploy:production",
+    "postrelease": "npm run deploy:testing",
     "commit": "git-cz",
-    "build": "next build && next export",
+    "build": "next build",
     "postbuild": "env-cmd -f .env.production node sitemap.js",
     "serve": "next start",
-    "predeploy:testing": "env-cmd -f .env.testing npm run build",
-    "deploy:testing": "scp -r out/* tourepedia:~/public_html/test.tourepedia.com/",
-    "predeploy:production": "env-cmd -f .env.production npm run build",
-    "deploy:production": "scp -r out/* tourepedia:~/public_html/"
+    "deploy:testing": "now",
+    "deploy:production": "now --prod"
   },
   "repository": {
     "type": "git",
