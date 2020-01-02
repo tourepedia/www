@@ -8,7 +8,7 @@
     "dev": "env-cmd -f .env.development next -p 4000",
     "start": "next start",
     "release": "env-cmd -f .env.tokens semantic-release",
-    "postrelease": "npm run deploy:testing",
+    "postrelease": "npm run deploy:production",
     "commit": "git-cz",
     "build": "next build",
     "postbuild": "env-cmd -f .env.production node sitemap.js",
