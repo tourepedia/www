@@ -15,7 +15,7 @@ npm start
 ## Scripts
 
 ```bash
-npm start # start the development server
+npm run dev # start the development server
 npm run build # create the production build
 npm run serve # serve the production build locally
 npm run format # format all the *.js files
