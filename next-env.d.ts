@@ -18,6 +18,15 @@ declare namespace NodeJS {
     readonly API_URL: string
     readonly GOOGLE_SITE_VERIFICATION: string
     readonly GOOGLE_ANALYTICS_TRACKING_ID: string
+    readonly bookingsEmail: string
+    readonly bookingsPhoneNumber: string
+    readonly supportEmail: string
+    readonly apiUrl: string
+    readonly basePath: string
+    readonly googleSiteVerification: string
+    readonly googleAnalyticsTrackingID: string
+    readonly publicUrl: string
+    readonly version: string
   }
 }
 

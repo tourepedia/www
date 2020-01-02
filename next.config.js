@@ -1,10 +1,12 @@
 require('dotenv').config({
-  path: `.env.development`,
+  path:
+    process.env.NODE_ENV === 'production'
+      ? `.env.production`
+      : `.env.development`,
 })
 
 module.exports = {
-  exportTrailingSlash: process.env.NODE_ENV === 'production',
-  publicRuntimeConfig: {
+  env: {
     bookingsEmail: process.env.BOOKINGS_EMAIL,
     bookingsPhoneNumber: process.env.BOOKINGS_PHONE_NUMBER,
     supportEmail: process.env.SUPPORT_EMAIL,

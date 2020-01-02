@@ -1,3 +1,4 @@
 {
-  "name": "@tourepedia/www"
+  "name": "@tourepedia/www",
+  "alias": ["tourepedia.com"]
 }

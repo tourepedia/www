@@ -1,15 +1,13 @@
-import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
 import destinations from './../assets/destinations'
 
 export default {
-  publicUrl: publicRuntimeConfig.publicUrl || '',
-  phoneNumber: publicRuntimeConfig.bookingsPhoneNumber || '+918950392425',
-  email: publicRuntimeConfig.bookingsEmail || 'bookings@tourepedia.com',
-  supportEmail: publicRuntimeConfig.supportEmail || 'support@tourepedia.com',
-  apiUrl: publicRuntimeConfig.apiUrl || 'http://localhost:8000/api',
-  basePath: publicRuntimeConfig.basePath || '',
-  version: publicRuntimeConfig.version || '1.0.0',
+  publicUrl: process.env.publicUrl || '',
+  phoneNumber: process.env.bookingsPhoneNumber || '+918950392425',
+  email: process.env.bookingsEmail || 'bookings@tourepedia.com',
+  supportEmail: process.env.supportEmail || 'support@tourepedia.com',
+  apiUrl: process.env.apiUrl || 'http://localhost:8000/api',
+  basePath: process.env.basePath || '',
+  version: process.env.version || '1.0.0',
   keywords: ['travel', 'tourepedia', 'india tour'].concat(
     destinations.map(d => d.title),
   ),
