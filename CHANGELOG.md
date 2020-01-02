@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/tourepedia/www/compare/v1.4.1...v1.4.2) (2020-01-02)
+
+
+### Bug Fixes
+
+* **deploy-release:** remove @ from tokens ([41d5d05](https://github.com/tourepedia/www/commit/41d5d05))
+
 ## [1.4.1](https://github.com/tourepedia/www/compare/v1.4.0...v1.4.1) (2020-01-02)
 
 
