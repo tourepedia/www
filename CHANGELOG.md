@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/tourepedia/www/compare/v1.4.0...v1.4.1) (2020-01-02)
+
+
+### Bug Fixes
+
+* **release-deploy:** no need to add deployment mannually ([11b3170](https://github.com/tourepedia/www/commit/11b3170))
+
 # [1.4.0](https://github.com/tourepedia/www/compare/v1.3.1...v1.4.0) (2020-01-02)
 
 
