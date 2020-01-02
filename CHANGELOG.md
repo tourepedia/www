@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/tourepedia/www/compare/v1.4.2...v1.5.0) (2020-01-02)
+
+
+### Features
+
+* **sitemap:** remove sitemap for now ([6a6653a](https://github.com/tourepedia/www/commit/6a6653a))
+
 ## [1.4.2](https://github.com/tourepedia/www/compare/v1.4.1...v1.4.2) (2020-01-02)
 
 
