@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/tourepedia/www/compare/v1.3.1...v1.4.0) (2020-01-02)
+
+
+### Bug Fixes
+
+* **deploy:** env not working ([d56d638](https://github.com/tourepedia/www/commit/d56d638))
+
+
+### Features
+
+* **deploy:** add zeit/now deployment ([16a5f26](https://github.com/tourepedia/www/commit/16a5f26))
+* **release:** add release and production deployment ([645085a](https://github.com/tourepedia/www/commit/645085a))
+
 ## [1.3.1](https://github.com/tourepedia/www/compare/v1.3.0...v1.3.1) (2019-10-20)
 
 
