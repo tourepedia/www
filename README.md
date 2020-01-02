@@ -9,7 +9,7 @@ Marketing website for tourepedia: https://tourepedia.com
 ```bash
 git clone git@github.com:tourepedia/www www && cd www
 npm install
-npm start
+npm run dev
 ```
 
 ## Scripts
@@ -17,8 +17,5 @@ npm start
 ```bash
 npm run dev # start the development server
 npm run build # create the production build
-npm run serve # serve the production build locally
-npm run format # format all the *.js files
-npm run deploy:testing # to deploy to the testing server
-npm run deploy:production # to deploy to the production server
+npm run start # serve the production build locally
 ```
