@@ -9,8 +9,7 @@
     "start": "next start",
     "release": "env-cmd -f .env.tokens semantic-release",
     "commit": "git-cz",
-    "build": "next build",
-    "postbuild": "env-cmd -f .env.production node sitemap.js"
+    "build": "next build"
   },
   "repository": {
     "type": "git",
@@ -37,7 +36,6 @@
     "classnames": "^2.2.6",
     "dotenv": "^8.0.0",
     "next": "^9.0.1",
-    "nextjs-sitemap-generator": "^0.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "typescript": "^3.5.3",
