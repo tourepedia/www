@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/tourepedia/www/compare/v1.6.1...v1.7.0) (2020-01-03)
+
+
+### Features
+
+* **deps:** updated deps to latest ([eca8487](https://github.com/tourepedia/www/commit/eca8487ba47e6e752bbae554107752e600460e36))
+
 ## [1.6.1](https://github.com/tourepedia/www/compare/v1.6.0...v1.6.1) (2020-01-03)
 
 
