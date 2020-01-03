@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/tourepedia/www/compare/v1.5.1...v1.6.0) (2020-01-03)
+
+
+### Features
+
+* **deploy:** add deployment actions ([5f02417](https://github.com/tourepedia/www/commit/5f0241758db3318c91a02f3358e2bb29718e728d))
+
 ## [1.5.1](https://github.com/tourepedia/www/compare/v1.5.0...v1.5.1) (2020-01-03)
 
 
