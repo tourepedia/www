@@ -5,9 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "env-cmd -f .env.development next -p 4000",
+    "dev": "next -p 4000",
     "start": "next start",
-    "release": "env-cmd -f .env.tokens semantic-release",
     "commit": "git-cz",
     "build": "next build"
   },
@@ -44,15 +43,12 @@
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
-    "@semantic-release/changelog": "^3.0.4",
-    "@semantic-release/git": "^7.0.16",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "env-cmd": "^9.0.3",
     "husky": "^3.0.0",
     "lint-staged": "^9.1.0",
-    "prettier": "^1.18.2",
-    "semantic-release": "^15.13.18"
+    "prettier": "^1.18.2"
   },
   "config": {
     "commitizen": {
@@ -81,7 +77,12 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
-      "@semantic-release/npm",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
       [
         "@semantic-release/git",
         {
@@ -89,8 +90,7 @@
         }
       ],
       "@semantic-release/github"
-    ],
-    "ci": false
+    ]
   },
   "prettier": {
     "tabWidth": 2,
