@@ -90,7 +90,8 @@ export default function Footer() {
       </Container>
       <section style={{ borderTop: '2px solid #451100', padding: '15px 0' }}>
         <Container>
-          &copy; 2019 Tourepedia. All rights reserved • v{appConfig.version}
+          &copy; 2015-2020 Tourepedia. All rights reserved • v
+          {appConfig.version}
         </Container>
       </section>
     </footer>
