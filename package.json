@@ -27,28 +27,28 @@
   },
   "homepage": "https://github.com/tourepedia/www#readme",
   "dependencies": {
-    "@svgr/webpack": "^4.3.1",
+    "@svgr/webpack": "^5.0.1",
     "@types/classnames": "^2.2.9",
-    "@types/node": "^12.6.1",
-    "@types/react": "^16.8.23",
-    "@types/react-dom": "^16.8.4",
+    "@types/node": "^13.1.2",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
     "classnames": "^2.2.6",
-    "dotenv": "^8.0.0",
-    "next": "^9.0.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "typescript": "^3.5.3",
-    "utility-types": "^3.7.0"
+    "dotenv": "^8.2.0",
+    "next": "^9.1.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "typescript": "^3.7.4",
+    "utility-types": "^3.10.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.0.0",
-    "@commitlint/config-conventional": "^8.0.0",
-    "commitizen": "^3.1.1",
-    "cz-conventional-changelog": "^2.1.0",
-    "env-cmd": "^9.0.3",
-    "husky": "^3.0.0",
-    "lint-staged": "^9.1.0",
-    "prettier": "^1.18.2"
+    "@commitlint/cli": "^8.3.3",
+    "@commitlint/config-conventional": "^8.3.3",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "env-cmd": "^10.0.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1"
   },
   "config": {
     "commitizen": {
