@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/tourepedia/www/compare/v1.5.0...v1.5.1) (2020-01-03)
+
+
+### Bug Fixes
+
+* **copyright-year:** update to 2020 ([286d7c5](https://github.com/tourepedia/www/commit/286d7c5))
+
 # [1.5.0](https://github.com/tourepedia/www/compare/v1.4.2...v1.5.0) (2020-01-02)
 
 
