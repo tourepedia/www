@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/tourepedia/www/compare/v1.6.0...v1.6.1) (2020-01-03)
+
+
+### Bug Fixes
+
+* **typo:** add comma in copyright ([b9a17fa](https://github.com/tourepedia/www/commit/b9a17faefc688d9a7798319f99ccf408aeca7878))
+
 # [1.6.0](https://github.com/tourepedia/www/compare/v1.5.1...v1.6.0) (2020-01-03)
 
 
