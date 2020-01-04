@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/tourepedia/www/compare/v1.8.0...v1.8.1) (2020-01-04)
+
+
+### Bug Fixes
+
+* **logo:** reduce logo size ([bd0bffa](https://github.com/tourepedia/www/commit/bd0bffacdd44c15df40ccbbb8b1ddf7a537de7c8))
+
 # [1.8.0](https://github.com/tourepedia/www/compare/v1.7.0...v1.8.0) (2020-01-04)
 
 
