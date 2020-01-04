@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/tourepedia/www/compare/v1.7.0...v1.8.0) (2020-01-04)
+
+
+### Features
+
+* **sitemap:** add sitemap ([cda55f0](https://github.com/tourepedia/www/commit/cda55f0419269afdaff971b5f57e11b6022c482f))
+
 # [1.7.0](https://github.com/tourepedia/www/compare/v1.6.1...v1.7.0) (2020-01-03)
 
 
