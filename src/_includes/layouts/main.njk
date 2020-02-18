@@ -1,0 +1,215 @@
+---
+title: Tourepedia - Travel Packages | Hotel Bookings | Transportation | Mice
+description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhutan with Tourepedia and get fully personalized plan
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="google-site-verification"
+      content={{ site.googleSiteVerification }}
+    />
+    {% seo {
+      title: title,
+      description: description
+    } %}
+    <meta name="theme-color" content={{ theme.primary }} />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="/static/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <style>
+        html,
+        body {
+          font-family: 'Work Sans', sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.7;
+        }
+        @media (max-width: 767px) {
+          html,
+          body {
+            font-size: 14px;
+          }
+        }
+        body {
+          margin: 0;
+          padding: 0.1px;
+          box-sizing: border-box;
+        }
+        *,
+        :after,
+        :before {
+          box-sizing: inherit;
+        }
+        blockquote,
+        dl,
+        dd,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        figure,
+        p,
+        pre {
+          margin: 0;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-weight: 700;
+          line-height: 1.2;
+        }
+        ol,
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        img,
+        svg,
+        video,
+        canvas,
+        audio,
+        iframe,
+        embed,
+        object {
+          display: block;
+          vertical-align: middle;
+        }
+        *,
+        *::before,
+        *::after {
+          border-width: 0;
+          border-style: solid;
+          border-color: silver;
+        }
+        svg {
+          max-width: 100%;
+          height: auto;
+        }
+        button,
+        input {
+          background: transparent;
+        }
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+          margin: 0;
+          font-family: inherit;
+          font-size: inherit;
+          line-height: inherit;
+        }
+        [disabled] {
+          background: whitesmoke;
+        }
+        a:focus {
+          outline: none;
+        }
+      </style>
+  </head>
+  <body>
+    <nav class="top-nav" style="border-top: solid 6px {{ theme.primary }}; font-size: 16px; color: black; font-weight: 400; " >
+      {% container %}
+      <style> a { text-decoration: none; color: inherit; } </style>
+      <div
+        class="top-nav-container"
+        style=" height: 50px; display: flex; align-items: center; justify-content: space-between; "
+        >
+        <div>
+          <a href="/">
+            <img
+              src="/static/logo.jpg"
+              alt="Logo"
+              style=" width: auto; height: 40px; display: inline-block; vertical-align: middle; " />
+            <h1
+              style=" margin-left: 10px; font-weight: inherit; font-size: inherit; display: inline-block; vertical-align: middle; " >
+              {{ site.name }}
+            </h1>
+            </a>
+        </div>
+      </div>
+      {% endcontainer %}
+    </nav>
+    <main id="main-content">
+      {{ content | safe }}
+    </main>
+    <footer
+      class="site-footer"
+      style="background: #300C00; padding: 1px 0; color: white; font-weight: 400; clear: both;">
+      {% container %}
+        <style>
+          .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+          }
+          .footer-heading {
+            font-size: 1.25rem;
+            margin: 10px 0;
+          }
+          .footer-link {
+            text-decoration: none;
+            color: inherit;
+            margin: 5px 0;
+            display: inline-block;
+          }
+          @media (max-width: 425px) {
+            .footer-container {
+              display: block;
+            }
+          }
+        </style>
+        <div class="footer-container">
+          <section>
+            <h5 class="footer-heading">Useful Links</h5>
+            <a href="/heal-agent" class="footer-link">Agents</a>
+            <br />
+            <a href="/terms-and-conditions" class="footer-link">
+              Terms and Conditions
+            </a>
+            <br />
+            <a href="/privacy-policies" class="footer-link">
+              Privacy Policies
+            </a>
+          </section>
+          <section>
+            <h5 class="footer-heading">Meet Us</h5>
+            <address>
+              Tourepedia Holidays, Near Sangram Bhawan, <br />
+              Development Area Taxi Stand, Gangtok
+              <br />
+              Sikkim, India, 737101
+              <br />
+              {{ site.phoneNumber }}
+            </address>
+          </section>
+        </div>
+      {% endcontainer %}
+      </div>
+      <section style="border-top: 2px solid #451100; padding: 15px 0;">
+        {% container %}
+          &copy; 2015-2020, Tourepedia. All rights reserved • v
+          {{ site.version }}
+        {% endcontainer %}
+      </section>
+    </footer>
+  </body>
+</html>

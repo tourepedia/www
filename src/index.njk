@@ -1,0 +1,155 @@
+---
+layout: layouts/main.njk
+---
+<div class="container">
+  <style>
+    .main-header-container {
+      display: flex;
+      padding: 80px 0;
+    }
+    .main-trip-image {
+      maxwidth: 400px;
+      width: 40%;
+      order: 2;
+      margin: 0 auto;
+    }
+    @media (max-width: 500px) {
+      .main-header-container {
+        display: block;
+        padding: 40px 0;
+      }
+      .main-trip-image {
+        width: 70%;
+        margin-bottom: 40px;
+      }
+    }
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 10px;
+    }
+    h3 {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+    p {
+      margin-top: 10px;
+      font-weight: 400;
+    }
+  </style>
+  <header class="main-header-container">
+    <section class="main-trip-image">
+      {{ '/src/_includes/images/trip.svg' | svgContents | safe }}
+    </section>
+    <div style="flex: 1">
+      <section>
+        <h2>
+          Pack your Bags and <br />
+          Escape
+        </h2>
+        <h3>You decide. We make it Happen</h3>
+      </section>
+      <section style="margin-top: 40px;">
+        {% button {
+          as: "a",
+          href:"/plan-your-trip",
+          label: "Plan your Trip"
+        } %}
+        <p>
+          Share your trip details with us and we will contact you with a
+          trip plan
+        </p>
+      </section>
+    </div>
+  </header>
+</div>
+
+<section class="section-destinations">
+  <style>
+    .section-destinations {
+      background: #effaff;
+      padding: 60px 0px;
+    }
+    .destination-list-item {
+      display: inline-block;
+      width: 50%;
+      verticalalign: top;
+      padding: 30px 15px;
+    }
+    @media (max-width: 767px) {
+      .destination-list-item {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  </style>
+  <div class="container">
+    <header style="text-align: center; margin-bottom: 60px;">
+      <h3 style="font-size: 2.25rem; margin: 0 0 20px 0">
+        Destinations
+      </h3>
+      <p style="margin: 0; font-weight: 400; font-size: 1.25rem">
+        From ocean to desert, from hills to plains, we got all covered with
+        start to end customer support.
+      </p>
+    </header>
+    <div>
+      <ol>
+        {%- for destination in destinations -%}
+          <li class="destination-list-item">
+            <div style="display: flex;">
+              <div style="width: 100px; margin-right: 20px;" >
+                {{ ("/src/_includes/images/" + destination.image) | svgContents | safe }}
+              </div>
+              <div style="flex: 1;">
+                <h4 style="margin: 0 0 8px 0; font-size: 1.5rem">
+                  {{ destination.title }}
+                </h4>
+                <p>{{ destination.description }}</p>
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="plan-your-trip">
+  <style>
+    #plan-your-trip {
+      padding: 15vh 0;
+      background: #fdedf5;
+    }
+    #plan-your-trip h3 {
+      font-size: 2.25rem;
+      margin-bottom: 20px;
+    }
+    #plan-your-trip footer a {
+      color: rgb(185, 75, 36);
+    }
+  `}</style>
+  <div class="container">
+    <header style="text-align: center;">
+      <h3>Plan Your Trip</h3>
+      <p>
+        Planning to visit somewhere? We are happy to create the best trip
+        expericence for you. Share your trip details and we will contact you
+        with a trip plan. No prior commitment and no spamming. No charges
+        for trip plan. Travel with us only if you like.
+      </p>
+      <div style="padding: 40px 0;">
+        {% button {
+          as: "a",
+          href:"/plan-your-trip",
+          label: "Submit Your Query"
+        } %}
+      </div>
+      <footer>
+        Or send us an email at <a href="mailto:{{ site.email }}">{{ site.email }}</a> or
+        call us on <a href="tel:{{ site.phoneNumber }}">{{ site.phoneNumber }}</a>
+        regarding your query.
+      </footer>
+    </header>
+  </div>
+</section>

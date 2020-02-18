@@ -5,10 +5,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "next -p 4000",
-    "start": "next start",
-    "commit": "git-cz",
-    "build": "next build"
+    "dev": "env-cmd eleventy --serve",
+    "build": "eleventy",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -17,8 +16,7 @@
   "keywords": [
     "tourepedia",
     "marking website",
-    "travel in India",
-    "nextjs"
+    "travel in India"
   ],
   "author": "Sudhir Mitharwal<luckysud4@gmail.com>",
   "license": "ISC",
@@ -26,25 +24,13 @@
     "url": "https://github.com/tourepedia/www/issues"
   },
   "homepage": "https://github.com/tourepedia/www#readme",
-  "dependencies": {
-    "@svgr/webpack": "^5.0.1",
-    "@types/classnames": "^2.2.9",
-    "@types/node": "^13.1.2",
-    "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.4",
-    "classnames": "^2.2.6",
-    "dotenv": "^8.2.0",
-    "next": "^9.1.6",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "typescript": "^3.7.4",
-    "utility-types": "^3.10.0"
-  },
   "devDependencies": {
+    "@11ty/eleventy": "^0.10.0",
     "@commitlint/cli": "^8.3.3",
     "@commitlint/config-conventional": "^8.3.3",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
+    "eleventy-plugin-svg-contents": "^0.5.1",
     "env-cmd": "^10.0.1",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",

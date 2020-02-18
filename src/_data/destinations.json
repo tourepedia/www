@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Sikkim",
+    "description": "Recharge and rejuvenate your mind and body amidst the tranquility and beauty of the Himalayan Mountains",
+    "image": "sikkim.svg"
+  },
+  {
+    "title": "North East",
+    "description": "Seven Sisters. Known for its natural beauty, diversity, rare and unique wildlife, people and culture",
+    "image": "north_east.svg"
+  },
+  {
+    "title": "Kerala",
+    "description": "Paradise, Beautiful backwaters, Varied demography, Unique culture, and Traditions. Peace of mind.",
+    "image": "kerala.svg"
+  },
+  {
+    "title": "Rajasthan",
+    "description": "Visit Majestic forts, Thar desert, Beautifully build temples, lakes, and Royalty.",
+
+    "image": "rajasthan.svg"
+  },
+  {
+    "title": "Gujarat",
+    "description": "Enjoy its unity rich cultural heritage, especially dance (garba and dandiya raas) and food (dhokla, fafda, khakra, etc.)",
+
+    "image": "gujarat.svg"
+  },
+  {
+    "title": "Bhutan",
+    "description": "Natural beauty, Forest conservation, Gross national happiness, Great culture, Heritage, and Biodiversity",
+
+    "image": "bhutan.svg"
+  }
+]

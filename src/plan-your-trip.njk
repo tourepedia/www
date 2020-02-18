@@ -1,0 +1,207 @@
+---
+layout: layouts/main.njk
+title: Plan Your Trip with Tourepedia
+---
+
+{% container %}
+  <section id="plan-your-trip-section">
+    <style>
+      #plan-your-trip-section {
+        padding: 7vh 0px;
+      }
+      #plan-your-trip-section h2 {
+        font-size: 2.25rem;
+        margin: 20px 0px;
+      }
+    </style>
+    <header>
+      <h2>Plan Your Trip</h2>
+      <p>
+        Please provide contact details along with your approximate
+        trip details. You can modify these details over phone call or
+        over email when contacted. No prior commitment and no
+        spamming. No charges for trip plan. Travel with us only if you
+        like.
+      </p>
+    </header>
+    <div style="margin: 40px auto;">
+      <form id="plan-your-trip-form" action="{{ site.apiUrl }}/trip-plan-requests" method="POST">
+        {% formStyles %}
+        {% row %}
+          {% col %}
+            {% input {
+              label: "Name* ",
+              name: "name",
+              placeholder: "Anand Sah",
+              required: "true"
+            } %}
+          {% endcol %}
+          {% col %}
+            {% input {
+              label: "Contact Number *",
+              name: "phone_number",
+              placeholder: "9999999999",
+              minLength: "10",
+              maxLength: "15",
+              required: "true"
+            } %}
+          {% endcol %}
+          {% col %}
+            {% input {
+              label: "Email",
+              name: "email",
+              type: "email",
+              placeholder: "use@domain.com"
+            } %}
+          {% endcol %}
+          {% col %}
+            {% input {
+              label: "Destination",
+              name: "destination",
+              placeholder: "Sikkim"
+            } %}
+          {% endcol %}
+          {% col %}
+            {% input {
+              label: "Date (approx.)",
+              name: "start_date",
+              type: "date",
+              placeholder: "dd/mm/yyyy"
+            } %}
+          {% endcol %}
+          {% col %}
+            {% input {
+              label: "Number of days",
+              name: "no_of_days",
+              type: "number",
+              placeholder: "5",
+              min: "1",
+              max: "1000"
+            } %}
+          {% endcol %}
+        {% endrow %}
+        {% row %}
+          {% col %}
+            {% input {
+              label: "No. of Adults",
+              name: "no_of_adults",
+              type: "number",
+              placeholder: "4",
+              min: "1",
+              max: "1000"
+            } %}
+          {% endcol %}
+          {% col %}
+            {% input {
+              label: "No. of Children",
+              name: "no_of_children",
+              type: "number",
+              placeholder: "1",
+              min: "0",
+              max: "1000"
+            } %}
+          {% endcol %}
+          {% col %}
+            {% input {
+              label: "Hotel Preference",
+              name: "hotel_preference",
+              placeholder: "4 star"
+            } %}
+          {% endcol %}
+        {% endrow %}
+        {% textarea {
+          label: "Any Comments",
+          name: "comments",
+          rows: "4",
+          placeholder: "It is a family gathering trip and so, we would like to have the best options for stay and food."
+        } %}
+        {% button {
+          id: "submit-plan-action",
+          label: "Submit Query"
+        } %}
+      </form>
+      <script>
+        if (typeof window !== "undefined") {
+          (function (document) {
+            var form = document.getElementById("plan-your-trip-form")
+            if (form) {
+              form.addEventListener('submit', handleTripPlanSubmitRequest)
+            }
+          })(document)
+
+          function handleTripPlanSubmitRequest (e) {
+            e.preventDefault()
+            var formData = new FormData(e.target)
+            const url = e.target.getAttribute('action')
+            var json = {}
+            for (var entry of formData) {
+              var name = entry[0]
+              var value = entry[1]
+              json[name] = value
+            }
+            disableFormSubmit()
+            storeTripPlanRequest(url, json)
+            .then(function () {
+              window.location = window.location.origin + '/plan-submitted'
+            })
+              .catch(function (error) {
+                enableFormSubmit()
+                window.alert(
+                  error.message
+                  + (error.errors ?
+                  "\n\n"
+                  + (Object.keys(error.errors)
+                    .reduce(function (allE, e) {
+                      return allE.concat(error.errors[e])
+                    }, [])
+                    .join(".\n")) : "")
+                )
+              })
+          }
+
+          function disableFormSubmit () {
+            var actionElm = document.getElementById('submit-plan-action')
+            if (actionElm) {
+              actionElm.setAttribute('disabled', true)
+              actionElm.innerText = actionElm.innerText + "...";
+            }
+          }
+
+          function enableFormSubmit () {
+            var actionElm = document.getElementById('submit-plan-action')
+            if (actionElm) {
+              actionElm.removeAttribute('disabled')
+              actionElm.innerText = actionElm.innerText.replace(/\./gi, "");
+            }
+          }
+
+          function storeTripPlanRequest(url, data) {
+            return fetch(url, {
+              method: 'POST',
+              mode: 'cors',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(Object.assign({}, data,{
+                start_date: localDateStringToUTCDateString(data.start_date),
+              })),
+            }).then(async function (resp) {
+              if (resp.status === 201) {
+                return resp.json()
+              }
+              const error = await resp.json()
+              return Promise.reject(error)
+            })
+          }
+          function localDateStringToUTCDateString(dateString) {
+            if (!dateString) return ''
+            var date = new Date(dateString)
+            var utcDateString = new Date(date.toUTCString()).toISOString()
+            return utcDateString.slice(0, 10) + ' ' + utcDateString.slice(11, 19)
+          }
+        }
+      </script>
+    </div>
+  </section>
+{% endcontainer %}
