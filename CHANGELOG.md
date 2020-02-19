@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/tourepedia/www/compare/v1.9.0...v1.10.0) (2020-02-19)
+
+
+### Features
+
+* **optimize:** optimize images ([4c73960](https://github.com/tourepedia/www/commit/4c73960c4c70254f7b9b88d4958e15dc58e146a1))
+
 # [1.9.0](https://github.com/tourepedia/www/compare/v1.8.1...v1.9.0) (2020-02-19)
 
 
