@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/tourepedia/www/compare/v1.11.0...v1.11.1) (2020-02-19)
+
+
+### Bug Fixes
+
+* **link:** remove software link for now ([67484b3](https://github.com/tourepedia/www/commit/67484b3813d3b1b9f202e8ea7ea201bf5906dcc2))
+
 # [1.11.0](https://github.com/tourepedia/www/compare/v1.10.1...v1.11.0) (2020-02-19)
 
 
