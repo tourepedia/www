@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/tourepedia/www/compare/v1.10.1...v1.11.0) (2020-02-19)
+
+
+### Features
+
+* **google-analytics:** add google analytics ([668875c](https://github.com/tourepedia/www/commit/668875ce4ea22a89a238f0a0efeb10bd52ff8a52))
+
 ## [1.10.1](https://github.com/tourepedia/www/compare/v1.10.0...v1.10.1) (2020-02-19)
 
 
