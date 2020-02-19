@@ -215,5 +215,15 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
         {% endcontainer %}
       </section>
     </footer>
+    {% if site.googleAnalyticsTrackingID !== "invalid" %}
+      <!-- Google Analytics -->
+      <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', "{{ site.googleAnalyticsTrackingID }}", 'auto');
+        ga('send', 'pageview');
+      </script>
+      <script async src='https://www.google-analytics.com/analytics.js'></script>
+      <!-- End Google Analytics -->
+    {% endif %}
   </body>
 </html>
