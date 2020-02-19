@@ -10,24 +10,9 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://tourepedia.com/index.amp</loc>
-    <lastmod>2020-01-04T03:36:17+00:00</lastmod>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://tourepedia.com/plan-your-trip</loc>
     <lastmod>2020-01-04T03:36:17+00:00</lastmod>
     <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://tourepedia.com/heal-agent</loc>
-    <lastmod>2020-01-04T03:36:17+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://tourepedia.com/heal-agent.amp</loc>
-    <lastmod>2020-01-04T03:36:17+00:00</lastmod>
-    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://tourepedia.com/terms-and-conditions</loc>
@@ -35,17 +20,7 @@
     <priority>0.50</priority>
   </url>
   <url>
-    <loc>https://tourepedia.com/terms-and-conditions.amp</loc>
-    <lastmod>2020-01-04T03:36:17+00:00</lastmod>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://tourepedia.com/privacy-policies</loc>
-    <lastmod>2020-01-04T03:36:17+00:00</lastmod>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://tourepedia.com/privacy-policies.amp</loc>
     <lastmod>2020-01-04T03:36:17+00:00</lastmod>
     <priority>0.50</priority>
   </url>
