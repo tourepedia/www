@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/tourepedia/www/compare/v1.10.0...v1.10.1) (2020-02-19)
+
+
+### Bug Fixes
+
+* **img:** use svg for banner ([cce4362](https://github.com/tourepedia/www/commit/cce436252b6b6efafe187262e53beb1a5242035d))
+
 # [1.10.0](https://github.com/tourepedia/www/compare/v1.9.0...v1.10.0) (2020-02-19)
 
 
