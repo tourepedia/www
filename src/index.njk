@@ -38,7 +38,7 @@ layout: layouts/main.njk
   </style>
   <header class="main-header-container">
     <section class="main-trip-image">
-      <img src="/static/images/trip.svg" alt="Travel" />
+      {{ "/static/images/trip.svg" | svgContents | safe }}
     </section>
     <div style="flex: 1">
       <section>
