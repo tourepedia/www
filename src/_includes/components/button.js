@@ -5,7 +5,7 @@ const buttonStyles = `<style>
   .btn {
       padding: 12px 30px;
       border-radius: 5px;
-      border: 2px solid {{ theme.primary }};
+      border: 2px solid ${theme.primary};
       background: ${theme.primary};
       color: white;
       text-decoration: none;

@@ -1,4 +1,5 @@
 const svgContents = require('eleventy-plugin-svg-contents')
+const htmlmin = require('html-minifier')
 
 const inputDir = 'src'
 
@@ -34,6 +35,21 @@ module.exports = config => {
 
   // copy/paste static assets
   config.addPassthroughCopy('static')
+
+  // custom transformers
+  config.addTransform('htmlmin', function(content, outputPath) {
+    if (outputPath.endsWith('.html')) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyJs: true,
+        minifyCSS: true,
+      })
+      return minified
+    }
+    return content
+  })
 
   return {
     dir: {

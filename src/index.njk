@@ -23,22 +23,22 @@ layout: layouts/main.njk
         margin-bottom: 40px;
       }
     }
-    h2 {
+    .main-header-container h2 {
       font-size: 2.25rem;
       margin-bottom: 10px;
     }
-    h3 {
+    .main-header-container h3 {
       font-weight: 600;
       font-size: 1.5rem;
     }
-    p {
+    .main-header-container p {
       margin-top: 10px;
       font-weight: 400;
     }
   </style>
   <header class="main-header-container">
     <section class="main-trip-image">
-      {{ '/src/_includes/images/trip.svg' | svgContents | safe }}
+      <img src="/static/images/trip.svg" alt="Travel" />
     </section>
     <div style="flex: 1">
       <section>
@@ -51,7 +51,7 @@ layout: layouts/main.njk
       <section style="margin-top: 40px;">
         {% button {
           as: "a",
-          href:"/plan-your-trip",
+          href:"/plan-your-trip/",
           label: "Plan your Trip"
         } %}
         <p>
@@ -72,7 +72,7 @@ layout: layouts/main.njk
     .destination-list-item {
       display: inline-block;
       width: 50%;
-      verticalalign: top;
+      vertical-align: top;
       padding: 30px 15px;
     }
     @media (max-width: 767px) {
@@ -88,7 +88,7 @@ layout: layouts/main.njk
       <h3 style="font-size: 2.25rem; margin: 0 0 20px 0">
         Destinations
       </h3>
-      <p style="margin: 0; font-weight: 400; font-size: 1.25rem">
+      <p style="margin: 0; font-weight: 400; font-size: 1.25rem;">
         From ocean to desert, from hills to plains, we got all covered with
         start to end customer support.
       </p>
@@ -99,10 +99,10 @@ layout: layouts/main.njk
           <li class="destination-list-item">
             <div style="display: flex;">
               <div style="width: 100px; margin-right: 20px;" >
-                {{ ("/src/_includes/images/" + destination.image) | svgContents | safe }}
+                <img src="/static/images/{{ destination.image }}" alt="{{destination.title}}" />
               </div>
               <div style="flex: 1;">
-                <h4 style="margin: 0 0 8px 0; font-size: 1.5rem">
+                <h4 style="margin: 0 0 8px 0; font-size: 1.5rem;">
                   {{ destination.title }}
                 </h4>
                 <p>{{ destination.description }}</p>
@@ -141,7 +141,7 @@ layout: layouts/main.njk
       <div style="padding: 40px 0;">
         {% button {
           as: "a",
-          href:"/plan-your-trip",
+          href:"/plan-your-trip/",
           label: "Submit Your Query"
         } %}
       </div>

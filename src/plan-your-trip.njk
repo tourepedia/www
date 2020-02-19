@@ -132,7 +132,7 @@ title: Plan Your Trip with Tourepedia
           function handleTripPlanSubmitRequest (e) {
             e.preventDefault()
             var formData = new FormData(e.target)
-            const url = e.target.getAttribute('action')
+            var url = e.target.getAttribute('action')
             var json = {}
             for (var entry of formData) {
               var name = entry[0]
@@ -190,7 +190,7 @@ title: Plan Your Trip with Tourepedia
               if (resp.status === 201) {
                 return resp.json()
               }
-              const error = await resp.json()
+              var error = await resp.json()
               return Promise.reject(error)
             })
           }
