@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/tourepedia/www/compare/v1.8.1...v1.9.0) (2020-02-19)
+
+
+### Features
+
+* **static:** make website pure static ([7194997](https://github.com/tourepedia/www/commit/7194997c04a9076734a294d78d052fb3b680164e))
+
 ## [1.8.1](https://github.com/tourepedia/www/compare/v1.8.0...v1.8.1) (2020-01-04)
 
 
