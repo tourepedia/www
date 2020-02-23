@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/tourepedia/www/compare/v1.11.1...v1.11.2) (2020-02-19)
+
+
+### Bug Fixes
+
+* **footer:** remove unwanted line break ([4350019](https://github.com/tourepedia/www/commit/43500196ef54e84fbc096a57619ac9b5894579cc))
+
 ## [1.11.1](https://github.com/tourepedia/www/compare/v1.11.0...v1.11.1) (2020-02-19)
 
 
