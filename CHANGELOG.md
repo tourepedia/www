@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/tourepedia/www/compare/v1.12.0...v1.13.0) (2020-02-23)
+
+
+### Features
+
+* **amp-url:** add amp relative urls ([d854360](https://github.com/tourepedia/www/commit/d8543606c14351382bfc37846a609da0b53b7327))
+
 # [1.12.0](https://github.com/tourepedia/www/compare/v1.11.2...v1.12.0) (2020-02-23)
 
 
