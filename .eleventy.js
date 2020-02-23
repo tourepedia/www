@@ -11,6 +11,7 @@ const componentsDir = `${inputDir}/_includes/components`
 
 // components
 const seo = require(`./${componentsDir}/seo.js`)
+const link = require(`./${componentsDir}/link.js`)
 const button = require(`./${componentsDir}/button.js`)
 const {
   formStyles,
@@ -40,6 +41,7 @@ module.exports = config => {
   config.addPairedShortcode('row', row)
   config.addShortcode('rowStyles', rowStyles)
   config.addPairedShortcode('col', col)
+  config.addPairedShortcode('link', link)
 
   // copy/paste static assets
   config.addPassthroughCopy('static')
@@ -80,7 +82,7 @@ module.exports = config => {
   return {
     dir: {
       input: inputDir,
-      output: isAmp ? 'build/amp' : 'build',
+      output: 'build' + (isAmp ? siteData.ampDir : ''),
     },
   }
 }

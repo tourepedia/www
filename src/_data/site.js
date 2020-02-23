@@ -1,8 +1,14 @@
 const package = require('../../package.json')
 
+let publicUrl = process.env.PUBLIC_URL || 'https://tourepedia.com'
+
+if (publicUrl === '/') {
+  publicUrl = ''
+}
+
 module.exports = {
   name: 'Tourepedia',
-  publicUrl: 'https://tourepedia.com',
+  publicUrl,
   phoneNumber: process.env.BOOKINGS_PHONE_NUMBER || '+918950392425',
   email: process.env.BOOKINGS_EMAIL || 'bookings@tourepedia.com',
   supportEmail: process.env.SUPPORT_EMAIL || 'support@tourepedia.com',
@@ -15,4 +21,5 @@ module.exports = {
   googleAnalyticsTrackingID:
     process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'UA-61051300-1',
   isAmp: process.env.AMP,
+  ampDir: '/amp',
 }

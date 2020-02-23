@@ -33,6 +33,7 @@
     "@ampproject/eleventy-plugin-amp": "^0.1.0",
     "@commitlint/cli": "^8.3.3",
     "@commitlint/config-conventional": "^8.3.3",
+    "classnames": "^2.2.6",
     "commitizen": "^4.0.3",
     "cross-env": "^7.0.0",
     "cz-conventional-changelog": "^3.0.2",

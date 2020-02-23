@@ -20,7 +20,7 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
     {%- if site.isAmp %}
     <link rel="canonical" href="{{ page.url | publicUrl }}" />
     {%- else %}
-      <link rel="amphtml" href="{{ ("/amp" + page.url) | publicUrl }}" />
+      <link rel="amphtml" href="{{ (site.ampDir + page.url) | publicUrl }}" />
     {%- endif %}
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
@@ -159,7 +159,7 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
         style=" height: 50px; display: flex; align-items: center; justify-content: space-between; "
         >
         <div>
-          <a href="/">
+          {% link { href: "/" } %}
             <img
               src="/static/images/logo.jpg"
               alt="Logo"
@@ -168,7 +168,7 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
               style=" margin-left: 10px; font-weight: inherit; font-size: inherit; display: inline-block; vertical-align: middle; " >
               {{ site.name }}
             </h1>
-            </a>
+          {% endlink %}
         </div>
       </div>
       {% endcontainer %}
@@ -183,13 +183,13 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
         <div class="footer-container">
           <section>
             <h5 class="footer-heading">Useful Links</h5>
-            <a href="/terms-and-conditions/" class="footer-link">
+            {% link { href: "/terms-and-conditions/", class: "footer-link" } %}
               Terms and Conditions
-            </a>
+            {% endlink %}
             <br />
-            <a href="/privacy-policies/" class="footer-link">
+            {% link { href: "/privacy-policies/", class: "footer-link" } %}
               Privacy Policies
-            </a>
+            {% endlink %}
           </section>
           <section>
             <h5 class="footer-heading">Meet Us</h5>

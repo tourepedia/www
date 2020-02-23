@@ -1,5 +1,7 @@
 const theme = require('./../../_data/theme.json')
 const { spreadProps } = require('./utils')
+const link = require('./link')
+const classNames = require('classnames')
 
 const buttonStyles = `<style>
   .btn {
@@ -33,8 +35,18 @@ const buttonStyles = `<style>
     }
   </style>`
 
-function button({ as = 'button', label = '', ...props } = {}) {
-  return `<${as} class="btn" ${spreadProps(
+function button({
+  as = 'button',
+  label = '',
+  class: className,
+  ...props
+} = {}) {
+  if (as == 'a')
+    return link(`${label}${buttonStyles}`, {
+      class: classNames('btn', className),
+      ...props,
+    })
+  return `<${as} class="${classNames('btn', className)}" ${spreadProps(
     props,
   )}>${label}</${as}>${buttonStyles}`
 }
