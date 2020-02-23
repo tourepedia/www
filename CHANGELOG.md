@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/tourepedia/www/compare/v1.11.2...v1.12.0) (2020-02-23)
+
+
+### Features
+
+* **amp:** add amp support ([161d189](https://github.com/tourepedia/www/commit/161d1895174f98a03f319ea30c17830b12f8caeb))
+
 ## [1.11.2](https://github.com/tourepedia/www/compare/v1.11.1...v1.11.2) (2020-02-19)
 
 
