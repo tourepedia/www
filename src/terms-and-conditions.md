@@ -1,5 +1,6 @@
 ---
 layout: layouts/main.njk
+priority: 0.2
 title: Terms and Conditions
 ---
 

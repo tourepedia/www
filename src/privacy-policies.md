@@ -1,5 +1,6 @@
 ---
 layout: layouts/main.njk
+priority: 0.2
 title: Privacy Policies
 ---
 
@@ -187,6 +188,5 @@ contact us at <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}
 </a>.
 
 This document was last updated on 9th July, 2019
-
 
 </div>

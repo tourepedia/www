@@ -9,20 +9,13 @@ function container(content) {
   </style>`
 }
 
-function row(content) {
-  return `<div class="row">${content}</div>
-  <style id="styled-row">
+function rowStyles() {
+  return `<style>
   .row {
     display: flex;
     margin: 0 -15px;
     flex-wrap: wrap;
   }
-  </style>`
-}
-
-function col(content) {
-  return `<div class="col">${content}</div>
-  <style>
   .col {
     padding: 0 15px;
     flex-basis: 0;
@@ -34,8 +27,17 @@ function col(content) {
   </style>`
 }
 
+function row(content) {
+  return `<div class="row">${content}</div>`
+}
+
+function col(content) {
+  return `<div class="col">${content}</div>`
+}
+
 module.exports = {
   container,
   row,
   col,
+  rowStyles,
 }

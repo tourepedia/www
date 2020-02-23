@@ -7,7 +7,6 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta httpEquiv="x-ua-compatible" content="ie=edge" />
     <meta
       name="google-site-verification"
       content={{ site.googleSiteVerification }}
@@ -17,15 +16,17 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
       description: description
     } %}
     <meta name="theme-color" content={{ theme.primary }} />
+
+    {%- if site.isAmp %}
+    <link rel="canonical" href="{{ page.url | publicUrl }}" />
+    {%- else %}
+      <link rel="amphtml" href="{{ ("/amp" + page.url) | publicUrl }}" />
+    {%- endif %}
+
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
       rel="stylesheet"
-    />
-    <link
-      rel="shortcut icon"
-      href="/static/favicon.ico"
-      type="image/x-icon"
     />
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
     <style>
@@ -127,6 +128,26 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
         a:focus {
           outline: none;
         }
+        .footer-container {
+          display: flex;
+          justify-content: space-between;
+          padding: 15px 0;
+        }
+        .footer-heading {
+          font-size: 1.25rem;
+          margin: 10px 0;
+        }
+        .footer-link {
+          text-decoration: none;
+          color: inherit;
+          margin: 5px 0;
+          display: inline-block;
+        }
+        @media (max-width: 425px) {
+          .footer-container {
+            display: block;
+          }
+        }
       </style>
   </head>
   <body>
@@ -140,9 +161,9 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
         <div>
           <a href="/">
             <img
-              src="/static/logo.jpg"
+              src="/static/images/logo.jpg"
               alt="Logo"
-              style=" width: auto; height: 40px; display: inline-block; vertical-align: middle; " />
+              style="width: 40px; height: 40px; display: inline-block; vertical-align: middle;" />
             <h1
               style=" margin-left: 10px; font-weight: inherit; font-size: inherit; display: inline-block; vertical-align: middle; " >
               {{ site.name }}
@@ -159,28 +180,6 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
       class="site-footer"
       style="background: #300C00; padding: 1px 0; color: white; font-weight: 400; clear: both;">
       {% container %}
-        <style>
-          .footer-container {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-          }
-          .footer-heading {
-            font-size: 1.25rem;
-            margin: 10px 0;
-          }
-          .footer-link {
-            text-decoration: none;
-            color: inherit;
-            margin: 5px 0;
-            display: inline-block;
-          }
-          @media (max-width: 425px) {
-            .footer-container {
-              display: block;
-            }
-          }
-        </style>
         <div class="footer-container">
           <section>
             <h5 class="footer-heading">Useful Links</h5>
@@ -213,15 +212,35 @@ description: Plan your trips to Rajasthan, Gujarat, Kerala, North East and Bhuta
         {% endcontainer %}
       </section>
     </footer>
-    {% if site.googleAnalyticsTrackingID !== "invalid" %}
+    {%- if site.googleAnalyticsTrackingID !== "invalid" %}
       <!-- Google Analytics -->
-      <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', "{{ site.googleAnalyticsTrackingID }}", 'auto');
-        ga('send', 'pageview');
-      </script>
-      <script async src='https://www.google-analytics.com/analytics.js'></script>
+      {%- if site.isAmp %}
+        <amp-analytics type="gtag" data-credentials="include">
+          <script type="application/json">
+            {
+              "vars": {
+                "gtag_id": "{{ site.googleAnalyticsTrackingID }}",
+                "config": {
+                  "{{ site.googleAnalyticsTrackingID }}": { "groups": "default" }
+                }
+              }
+            }
+          </script>
+        </amp-analytics>
+      {%- else %}
+        <script>
+          window.ga =
+            window.ga ||
+            function() {
+              ;(ga.q = ga.q || []).push(arguments)
+            }
+          ga.l = +new Date()
+          ga('create', '{{ site.googleAnalyticsTrackingID }}', 'auto')
+          ga('send', 'pageview')
+        </script>
+        <script async src="https://www.google-analytics.com/analytics.js"></script>
+      {%- endif %}
       <!-- End Google Analytics -->
-    {% endif %}
+    {%- endif %}
   </body>
 </html>

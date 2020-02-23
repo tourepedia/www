@@ -1,6 +1,7 @@
 ---
 layout: layouts/main.njk
 title: Plan Your Trip with Tourepedia
+priority: 1
 ---
 
 {% container %}
@@ -13,195 +14,274 @@ title: Plan Your Trip with Tourepedia
         font-size: 2.25rem;
         margin: 20px 0px;
       }
+      #plan-submited figure {
+        min-width: 150px;
+        width: 70%;
+        max-width: 250px;
+        margin: 30px auto;
+      }
+      form.amp-form-submit-success .form-inputs {
+        display: none
+      }
+      .amp-form-submitting [type="submit"]:after {
+        content: "...";
+        display: inline;
+      }
+      [submit-success] {
+        display: none;
+      }
     </style>
-    <header>
-      <h2>Plan Your Trip</h2>
-      <p>
-        Please provide contact details along with your approximate
-        trip details. You can modify these details over phone call or
-        over email when contacted. No prior commitment and no
-        spamming. No charges for trip plan. Travel with us only if you
-        like.
-      </p>
-    </header>
+    {% formStyles %}
+    {% rowStyles %}
     <div style="margin: 40px auto;">
-      <form id="plan-your-trip-form" action="{{ site.apiUrl }}/trip-plan-requests" method="POST">
-        {% formStyles %}
-        {% row %}
-          {% col %}
-            {% input {
-              label: "Name* ",
-              name: "name",
-              placeholder: "Anand Sah",
-              required: "true"
-            } %}
-          {% endcol %}
-          {% col %}
-            {% input {
-              label: "Contact Number *",
-              name: "phone_number",
-              placeholder: "9999999999",
-              minLength: "10",
-              maxLength: "15",
-              required: "true"
-            } %}
-          {% endcol %}
-          {% col %}
-            {% input {
-              label: "Email",
-              name: "email",
-              type: "email",
-              placeholder: "use@domain.com"
-            } %}
-          {% endcol %}
-          {% col %}
-            {% input {
-              label: "Destination",
-              name: "destination",
-              placeholder: "Sikkim"
-            } %}
-          {% endcol %}
-          {% col %}
-            {% input {
-              label: "Date (approx.)",
-              name: "start_date",
-              type: "date",
-              placeholder: "dd/mm/yyyy"
-            } %}
-          {% endcol %}
-          {% col %}
-            {% input {
-              label: "Number of days",
-              name: "no_of_days",
-              type: "number",
-              placeholder: "5",
-              min: "1",
-              max: "1000"
-            } %}
-          {% endcol %}
-        {% endrow %}
-        {% row %}
-          {% col %}
-            {% input {
-              label: "No. of Adults",
-              name: "no_of_adults",
-              type: "number",
-              placeholder: "4",
-              min: "1",
-              max: "1000"
-            } %}
-          {% endcol %}
-          {% col %}
-            {% input {
-              label: "No. of Children",
-              name: "no_of_children",
-              type: "number",
-              placeholder: "1",
-              min: "0",
-              max: "1000"
-            } %}
-          {% endcol %}
-          {% col %}
-            {% input {
-              label: "Hotel Preference",
-              name: "hotel_preference",
-              placeholder: "4 star"
-            } %}
-          {% endcol %}
-        {% endrow %}
-        {% textarea {
-          label: "Any Comments",
-          name: "comments",
-          rows: "4",
-          placeholder: "It is a family gathering trip and so, we would like to have the best options for stay and food."
-        } %}
-        {% button {
-          id: "submit-plan-action",
-          label: "Submit Query"
-        } %}
-      </form>
-      <script>
-        if (typeof window !== "undefined") {
-          (function (document) {
-            var form = document.getElementById("plan-your-trip-form")
-            if (form) {
-              form.addEventListener('submit', handleTripPlanSubmitRequest)
-            }
-          })(document)
-
-          function handleTripPlanSubmitRequest (e) {
-            e.preventDefault()
-            var formData = new FormData(e.target)
-            var url = e.target.getAttribute('action')
-            var json = {}
-            for (var entry of formData) {
-              var name = entry[0]
-              var value = entry[1]
-              json[name] = value
-            }
-            disableFormSubmit()
-            storeTripPlanRequest(url, json)
-            .then(function () {
-              window.location = window.location.origin + '/plan-submitted'
-            })
-              .catch(function (error) {
-                enableFormSubmit()
-                window.alert(
-                  error.message
-                  + (error.errors ?
-                  "\n\n"
-                  + (Object.keys(error.errors)
-                    .reduce(function (allE, e) {
-                      return allE.concat(error.errors[e])
-                    }, [])
-                    .join(".\n")) : "")
-                )
-              })
-          }
-
-          function disableFormSubmit () {
-            var actionElm = document.getElementById('submit-plan-action')
-            if (actionElm) {
-              actionElm.setAttribute('disabled', true)
-              actionElm.innerText = actionElm.innerText + "...";
-            }
-          }
-
-          function enableFormSubmit () {
-            var actionElm = document.getElementById('submit-plan-action')
-            if (actionElm) {
-              actionElm.removeAttribute('disabled')
-              actionElm.innerText = actionElm.innerText.replace(/\./gi, "");
-            }
-          }
-
-          function storeTripPlanRequest(url, data) {
-            return fetch(url, {
-              method: 'POST',
-              mode: 'cors',
-              headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(Object.assign({}, data,{
-                start_date: localDateStringToUTCDateString(data.start_date),
-              })),
-            }).then(async function (resp) {
-              if (resp.status === 201) {
-                return resp.json()
+      <form
+        id="plan-your-trip-form"
+        action-xhr="{{ site.apiUrl }}/trip-plan-requests"
+        method="POST">
+        <div class="form-inputs" id="plan-trip-form-inputs">
+          <header style="margin-bottom: 40px">
+            <h2>Plan Your Trip</h2>
+            <p>
+              Please provide contact details along with your approximate
+              trip details. You can modify these details over phone call or
+              over email when contacted. No prior commitment and no
+              spamming. No charges for trip plan. Travel with us only if you
+              like.
+            </p>
+          </header>
+          {% row %}
+            {% col %}
+              {% input {
+                label: "Name* ",
+                type: "text",
+                name: "name",
+                placeholder: "Anand Sah",
+                required: "true"
+              } %}
+            {% endcol %}
+            {% col %}
+              {% input {
+                label: "Contact Number *",
+                type: "number",
+                name: "phone_number",
+                placeholder: "9999999999",
+                minLength: "10",
+                maxLength: "15",
+                required: "true"
+              } %}
+            {% endcol %}
+            {% col %}
+              {% input {
+                label: "Email",
+                name: "email",
+                type: "email",
+                placeholder: "use@domain.com"
+              } %}
+            {% endcol %}
+            {% col %}
+              {% input {
+                label: "Destination",
+                name: "destination",
+                type: "text",
+                placeholder: "Sikkim"
+              } %}
+            {% endcol %}
+            {% col %}
+              {% input {
+                label: "Date (approx.)",
+                name: "start_date",
+                type: "date",
+                placeholder: "dd/mm/yyyy"
+              } %}
+            {% endcol %}
+            {% col %}
+              {% input {
+                label: "Number of days",
+                name: "no_of_days",
+                type: "number",
+                placeholder: "5",
+                min: "1",
+                max: "1000"
+              } %}
+            {% endcol %}
+          {% endrow %}
+          {% row %}
+            {% col %}
+              {% input {
+                label: "No. of Adults",
+                name: "no_of_adults",
+                type: "number",
+                placeholder: "4",
+                min: "1",
+                max: "1000"
+              } %}
+            {% endcol %}
+            {% col %}
+              {% input {
+                label: "No. of Children",
+                name: "no_of_children",
+                type: "number",
+                placeholder: "1",
+                min: "0",
+                max: "1000"
+              } %}
+            {% endcol %}
+            {% col %}
+              {% input {
+                label: "Hotel Preference",
+                name: "hotel_preference",
+                type: "text",
+                placeholder: "4 star"
+              } %}
+            {% endcol %}
+          {% endrow %}
+          {% textarea {
+            label: "Any Comments",
+            name: "comments",
+            rows: "4",
+            placeholder: "It is a family gathering trip and so, we would like to have the best options for stay and food."
+          } %}
+          {% button {
+            id: "submit-plan-action",
+            label: "Submit Query",
+            type: "submit"
+          } %}
+        </div>
+        <div submit-success id="submit-success">
+          <div id="plan-submited" style="margin: 6vh 0 15vh; text-align: center;">
+            <figure>
+              {{  "/static/images/taking_notes.svg" | svgContents | safe }}
+            </figure>
+            <div style="margin-bottom: 30px; overflow: hidden;">
+              <h2 style="margin-bottom: 20px; color: {{ theme.primary }};">
+                Thank you for sharing your details.
+              </h2>
+              <p style="font-size: 1.25rem">
+                Our sales executive will shortly contact regarding your trip.
+                We will put our best efforts to create a unique experience for
+                you on this trip.
+              </p>
+            </div>
+          </div>
+        </div>
+        {%- if site.isAmp === undefined %}
+          <script>
+            if (typeof window !== "undefined") {
+              (function (document) {
+                var form = _id("plan-your-trip-form")
+                if (form) {
+                  form.addEventListener('submit', handleTripPlanSubmitRequest)
+                }
+              })(document)
+              function handleTripPlanSubmitRequest (e) {
+                e.preventDefault()
+                var formData = new FormData(e.target)
+                var url = e.target.getAttribute('action-xhr')
+                var json = {}
+                for (var entry of formData) {
+                  var name = entry[0]
+                  var value = entry[1]
+                  json[name] = value
+                }
+                disableFormSubmit()
+                storeTripPlanRequest(url, json)
+                .then(function () {
+                  sayThanks(json)
+                })
+                  .catch(function (error) {
+                    enableFormSubmit()
+                    window.alert(
+                      error.message
+                      + (error.errors ?
+                      "\n\n"
+                      + (Object.keys(error.errors)
+                        .reduce(function (allE, e) {
+                          return allE.concat(error.errors[e])
+                        }, [])
+                        .join(".\n")) : "")
+                    )
+                  })
               }
-              var error = await resp.json()
-              return Promise.reject(error)
-            })
-          }
-          function localDateStringToUTCDateString(dateString) {
-            if (!dateString) return ''
-            var date = new Date(dateString)
-            var utcDateString = new Date(date.toUTCString()).toISOString()
-            return utcDateString.slice(0, 10) + ' ' + utcDateString.slice(11, 19)
-          }
-        }
-      </script>
+              function storeTripPlanRequest(url, data) {
+                return xhr("POST", url, Object.assign({}, data,{
+                    start_date: localDateStringToUTCDateString(data.start_date),
+                  })).then(async function (resp) {
+                  if (resp.status === 201) {
+                    return resp.json()
+                  }
+                  var error = await resp.json()
+                  return Promise.reject(error)
+                })
+              }
+
+              function xhr (method, url, data) {
+                return fetch(url, {
+                  method: method,
+                  mode: 'cors',
+                  headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(data),
+                })
+              }
+
+              function localDateStringToUTCDateString(dateString) {
+                if (!dateString) return ''
+                var date = new Date(dateString)
+                var utcDateString = new Date(date.toUTCString()).toISOString()
+                return utcDateString.slice(0, 10) + ' ' + utcDateString.slice(11, 19)
+              }
+
+              function disableFormSubmit () {
+                var actionElm = _id('submit-plan-action')
+                if (actionElm) {
+                  actionElm.setAttribute('disabled', true)
+                  actionElm.innerText = actionElm.innerText + "...";
+                }
+              }
+
+              function enableFormSubmit () {
+                var actionElm = _id('submit-plan-action')
+                if (actionElm) {
+                  actionElm.removeAttribute('disabled')
+                  actionElm.innerText = actionElm.innerText.replace(/\./gi, "");
+                }
+              }
+
+              function sayThanks (userData) {
+                hideFormInputs()
+                showThanksElm()
+              }
+
+              function hideFormInputs () {
+                css(_id('plan-trip-form-inputs'), {
+                  display: "none"
+                })
+              }
+
+              function showThanksElm () {
+                css(_id('submit-success'), {
+                  display: "block"
+                })
+              }
+
+              /**
+              * Add styles to a dom element
+              */
+              function css (elm, styles) {
+                if (!elm) return
+                for (var key in styles) {
+                  elm.style[key] = styles[key]
+                }
+              }
+              function _id (id) {
+                return document.getElementById(id)
+              }
+            }
+          </script>
+        {%- endif %}
+      </form>
     </div>
   </section>
 {% endcontainer %}

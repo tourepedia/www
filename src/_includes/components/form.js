@@ -35,19 +35,15 @@ function formStyles() {
 function formGroup(content, props = {}) {
   return `
     <div class="form-group">
-      ${
-        props.label ? `<label htmlFor="${props.id}">${props.label}</label>` : ''
-      }
+      ${props.label ? `<label for="${props.id}">${props.label}</label>` : ''}
       ${content}
     </div>
   `
 }
-function input({ label, id, name, type = 'text', as = 'input', ...props }) {
+function input({ label, id, name, as = 'input', ...props }) {
   id = id || name
   return formGroup(
-    `<${as} class="input" type="${type}" name="${name}" ${spreadProps(
-      props,
-    )}></${as}>`,
+    `<${as} class="input" name="${name}" ${spreadProps(props)}></${as}>`,
     {
       label,
       id,
