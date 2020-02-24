@@ -3,8 +3,10 @@ function container(content) {
   <style>
   .container {
     max-width: 970px;
-    padding: 0 20px;
-    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
   </style>`
 }

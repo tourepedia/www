@@ -6,8 +6,9 @@ title: Terms and Conditions
 
 <style>
   .main-content {
-    padding: 40px 0;
     line-height: 1.7;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   .main-content p {
     color: #333;
@@ -31,6 +32,7 @@ title: Terms and Conditions
   .main-content li + li {
     margin-top: 20px;
   }
+
 </style>
 <div class="container main-content">
 

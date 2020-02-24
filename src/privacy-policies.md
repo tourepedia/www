@@ -6,8 +6,9 @@ title: Privacy Policies
 
 <style>
   .main-content {
-    padding: 40px 0;
     line-height: 1.7;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   .main-content p {
     color: #333;
@@ -190,3 +191,4 @@ contact us at <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}
 This document was last updated on 9th July, 2019
 
 </div>
+
