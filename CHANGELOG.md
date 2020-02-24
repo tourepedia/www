@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/tourepedia/www/compare/v1.13.0...v1.13.1) (2020-02-24)
+
+
+### Bug Fixes
+
+* **css:** markdown styles not overwritten in amp pages ([f623b44](https://github.com/tourepedia/www/commit/f623b446311da0135198ccd659fd0e2347d42e57))
+
 # [1.13.0](https://github.com/tourepedia/www/compare/v1.12.0...v1.13.0) (2020-02-23)
 
 
