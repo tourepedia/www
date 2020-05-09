@@ -30,21 +30,21 @@
   "homepage": "https://github.com/tourepedia/www#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "@ampproject/eleventy-plugin-amp": "^0.1.0",
-    "@commitlint/cli": "^8.3.3",
-    "@commitlint/config-conventional": "^8.3.3",
+    "@ampproject/eleventy-plugin-amp": "^0.2.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "classnames": "^2.2.6",
-    "commitizen": "^4.0.3",
-    "cross-env": "^7.0.0",
-    "cz-conventional-changelog": "^3.0.2",
-    "eleventy-plugin-svg-contents": "^0.5.1",
-    "env-cmd": "^10.0.1",
+    "commitizen": "^4.1.2",
+    "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "eleventy-plugin-svg-contents": "^0.6.0",
+    "env-cmd": "^10.1.0",
     "html-minifier": "^4.0.0",
-    "husky": "^3.1.0",
-    "lint-staged": "^9.5.0",
-    "luxon": "^1.22.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "luxon": "^1.24.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.5"
   },
   "config": {
     "commitizen": {
@@ -64,8 +64,7 @@
   },
   "lint-staged": {
     "*.{tsx|ts|js|jsx|json|html|css|sass|scss}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "release": {
