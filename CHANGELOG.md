@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/tourepedia/www/compare/v1.14.0...v1.15.0) (2020-05-09)
+
+
+### Features
+
+* **update:** updated deps to latest ([ae11713](https://github.com/tourepedia/www/commit/ae11713cb1da3ff5d4dcd73bc9d7d87dfdc9141d))
+
 # [1.14.0](https://github.com/tourepedia/www/compare/v1.13.1...v1.14.0) (2020-05-09)
 
 
