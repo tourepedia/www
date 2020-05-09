@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/tourepedia/www/compare/v1.13.1...v1.14.0) (2020-05-09)
+
+
+### Features
+
+* **speed:** added instant.page plugin ([143a536](https://github.com/tourepedia/www/commit/143a536722a5e123dff9d2807879452e72df1fa6))
+
 ## [1.13.1](https://github.com/tourepedia/www/compare/v1.13.0...v1.13.1) (2020-02-24)
 
 
