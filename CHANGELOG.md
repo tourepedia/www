@@ -1,3 +1,11 @@
+## [1.15.1](https://github.com/tourepedia/www/compare/v1.15.0...v1.15.1) (2020-05-13)
+
+
+### Bug Fixes
+
+* **amp:** fetch the latest amp ([3e89799](https://github.com/tourepedia/www/commit/3e897993905be104a5ff23bd9ee601f13bfde214))
+* **amp:** fix svg amp issue ([d9dc8e4](https://github.com/tourepedia/www/commit/d9dc8e4f4ea402572aaabdc4785a6a035ffea98d))
+
 # [1.15.0](https://github.com/tourepedia/www/compare/v1.14.0...v1.15.0) (2020-05-09)
 
 
