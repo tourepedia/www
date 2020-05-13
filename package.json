@@ -30,7 +30,7 @@
   "homepage": "https://github.com/tourepedia/www#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "@ampproject/eleventy-plugin-amp": "^0.2.0",
+    "@ampproject/eleventy-plugin-amp": "^0.2.2",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "classnames": "^2.2.6",
