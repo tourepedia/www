@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/tourepedia/www/compare/v1.15.1...v1.16.0) (2020-05-15)
+
+
+### Features
+
+* **speed:** use quicklink to improve page transition speed ([9579977](https://github.com/tourepedia/www/commit/9579977b3684be035ccd10c628778b2dff95b64e))
+
 ## [1.15.1](https://github.com/tourepedia/www/compare/v1.15.0...v1.15.1) (2020-05-13)
 
 
