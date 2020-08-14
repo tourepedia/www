@@ -12,7 +12,7 @@ module.exports = {
   phoneNumber: process.env.BOOKINGS_PHONE_NUMBER || '+918950392425',
   email: process.env.BOOKINGS_EMAIL || 'bookings@tourepedia.com',
   supportEmail: process.env.SUPPORT_EMAIL || 'support@tourepedia.com',
-  apiUrl: process.env.API_URL || 'https://api.tourepedia.com/api',
+  apiUrl: process.env.API_URL || 'https://api.sembark.com/api',
   keywords: ['travel', 'tour', 'trip'],
   version: process.env.npm_package_version,
   googleSiteVerification:
