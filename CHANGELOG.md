@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/tourepedia/www/compare/v1.16.0...v1.16.1) (2020-08-14)
+
+
+### Bug Fixes
+
+* **url:** update the api endpoint ([9de7bc6](https://github.com/tourepedia/www/commit/9de7bc68277cfafcf0271ce106336e9370947f49))
+
 # [1.16.0](https://github.com/tourepedia/www/compare/v1.15.1...v1.16.0) (2020-05-15)
 
 
