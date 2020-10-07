@@ -30,21 +30,21 @@
   "homepage": "https://github.com/tourepedia/www#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
-    "@ampproject/eleventy-plugin-amp": "^0.5.2",
-    "@commitlint/cli": "^9.1.1",
-    "@commitlint/config-conventional": "^9.1.1",
+    "@ampproject/eleventy-plugin-amp": "^0.5.3",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "classnames": "^2.2.6",
-    "commitizen": "^4.1.2",
+    "commitizen": "^4.2.1",
     "cross-env": "^7.0.2",
-    "cz-conventional-changelog": "^3.2.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eleventy-plugin-svg-contents": "^0.7.0",
     "env-cmd": "^10.1.0",
     "html-minifier": "^4.0.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "luxon": "^1.24.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "luxon": "^1.25.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.5"
+    "prettier": "^2.1.2"
   },
   "config": {
     "commitizen": {
