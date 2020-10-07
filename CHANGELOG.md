@@ -1,3 +1,10 @@
+## [1.16.2](https://github.com/tourepedia/www/compare/v1.16.1...v1.16.2) (2020-10-07)
+
+
+### Bug Fixes
+
+* **phone_number:** change phone numbers ([844ea25](https://github.com/tourepedia/www/commit/844ea258694bbb8815b8f9a7b2aa25f97fd7738d))
+
 ## [1.16.1](https://github.com/tourepedia/www/compare/v1.16.0...v1.16.1) (2020-08-14)
 
 
