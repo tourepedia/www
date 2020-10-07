@@ -9,7 +9,7 @@ if (publicUrl === '/') {
 module.exports = {
   name: 'Tourepedia',
   publicUrl,
-  phoneNumber: process.env.BOOKINGS_PHONE_NUMBER || '+918950392425',
+  phoneNumber: process.env.BOOKINGS_PHONE_NUMBER || '+917062386860',
   email: process.env.BOOKINGS_EMAIL || 'bookings@tourepedia.com',
   supportEmail: process.env.SUPPORT_EMAIL || 'support@tourepedia.com',
   apiUrl: process.env.API_URL || 'https://api.sembark.com/api',

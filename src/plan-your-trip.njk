@@ -55,16 +55,16 @@ priority: 1
                 label: "Name* ",
                 type: "text",
                 name: "name",
-                placeholder: "Anand Sah",
+                placeholder: "Anand Shah",
                 required: "true"
               } %}
             {% endcol %}
             {% col %}
               {% input {
                 label: "Contact Number *",
-                type: "number",
+                type: "text",
                 name: "phone_number",
-                placeholder: "9999999999",
+                placeholder: site.phoneNumber,
                 minLength: "10",
                 maxLength: "15",
                 required: "true"
@@ -75,7 +75,7 @@ priority: 1
                 label: "Email",
                 name: "email",
                 type: "email",
-                placeholder: "use@domain.com"
+                placeholder: "yourname@gmail.com"
               } %}
             {% endcol %}
             {% col %}
