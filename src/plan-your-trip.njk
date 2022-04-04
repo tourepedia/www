@@ -36,7 +36,7 @@ priority: 1
     <div style="margin: 40px auto;">
       <form
         id="plan-your-trip-form"
-        action-xhr="{{ site.apiUrl }}/trip-plan-requests"
+        action-xhr="{{ site.apiUrl }}/store-trip-plan-request"
         method="POST">
         <div class="form-inputs" id="plan-trip-form-inputs">
           <header style="margin-bottom: 40px">
@@ -203,8 +203,14 @@ priority: 1
                   })
               }
               function storeTripPlanRequest(url, data) {
-                return xhr("POST", url, Object.assign({}, data,{
+                return xhr("POST", url, Object.assign({
+                    'no_of_adults': 2,
+                    'no_of_children': data.no_of_children 2,
+                  }, data,{
                     start_date: localDateStringToUTCDateString(data.start_date),
+                    trip_source: 'Website',
+                    no_of_adults: data.no_of_adults || 2,
+                    no_of_adults: data.no_of_adults || 2,
                   })).then(async function (resp) {
                   if (resp.status === 201) {
                     return resp.json()
@@ -215,16 +221,19 @@ priority: 1
               }
 
               function xhr (method, url, data) {
+                var headers = new Headers({
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                  'Authorization': 'Bearer 5|p3Xi7jYb5bnbcgBce8n64fFYY2khHZ8Q534VwHrR'
+                })
                 return fetch(url, {
                   method: method,
-                  mode: 'cors',
-                  headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                  },
+                  headers: headers,
                   body: JSON.stringify(data),
                 })
               }
+
+              window.xhr = xhr;
 
               function localDateStringToUTCDateString(dateString) {
                 if (!dateString) return ''
