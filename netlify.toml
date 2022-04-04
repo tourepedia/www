@@ -6,5 +6,5 @@
   publish = "build"
 
 [context.test]
-  command = "npm run build:test"
+  command = "npm run build_test"
 
