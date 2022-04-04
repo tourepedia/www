@@ -12,7 +12,7 @@ module.exports = {
   phoneNumber: process.env.BOOKINGS_PHONE_NUMBER || '+919166021917',
   email: process.env.BOOKINGS_EMAIL || 'bookings@tourepedia.com',
   supportEmail: process.env.SUPPORT_EMAIL || 'support@tourepedia.com',
-  apiUrl: process.env.API_URL || publicUrl + '/.netlify/functions',
+  apiUrl: publicUrl + '/.netlify/functions',
   keywords: ['travel', 'tour', 'trip'],
   version: process.env.npm_package_version,
   googleSiteVerification:

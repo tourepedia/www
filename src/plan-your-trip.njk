@@ -203,14 +203,9 @@ priority: 1
                   })
               }
               function storeTripPlanRequest(url, data) {
-                return xhr("POST", url, Object.assign({
-                    'no_of_adults': 2,
-                    'no_of_children': data.no_of_children 2,
-                  }, data,{
+                return xhr("POST", url, Object.assign({}, data,{
                     start_date: localDateStringToUTCDateString(data.start_date),
                     trip_source: 'Website',
-                    no_of_adults: data.no_of_adults || 2,
-                    no_of_adults: data.no_of_adults || 2,
                   })).then(async function (resp) {
                   if (resp.status === 201) {
                     return resp.json()
@@ -224,7 +219,6 @@ priority: 1
                 var headers = new Headers({
                   'Accept': 'application/json',
                   'Content-Type': 'application/json',
-                  'Authorization': 'Bearer 5|p3Xi7jYb5bnbcgBce8n64fFYY2khHZ8Q534VwHrR'
                 })
                 return fetch(url, {
                   method: method,

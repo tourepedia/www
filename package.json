@@ -5,12 +5,15 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev:html": "env-cmd eleventy --serve",
-    "dev:amp": "cross-env AMP=true env-cmd eleventy --serve",
     "dev": "npm-run-all --parallel --print-label dev:*",
+    "dev:html": "env-cmd -f .build.env.dev eleventy --serve",
+    "dev:amp": "cross-env AMP=true env-cmd -f .build.env.dev eleventy --serve",
     "build:html": "eleventy",
     "build:amp": "cross-env AMP=true eleventy",
     "build": "npm-run-all --print-label build:*",
+    "build_test:html": "env-cmd -f .build.env.test eleventy",
+    "build_test:amp": "cross-env env-cmd -f .build.env.test  AMP=true eleventy",
+    "build_test": "npm-run-all --print-label build_test:*",
     "commit": "git-cz"
   },
   "repository": {
