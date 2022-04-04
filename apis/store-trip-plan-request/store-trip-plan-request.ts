@@ -1,8 +1,8 @@
 import { Handler } from '@netlify/functions'
-import fetch, { Response } from 'node-fetch'
+// import fetch, { Response } from 'node-fetch'
 
-const API_BASE_URL = process.env.API_BASE_URL || 'https://api.sembark.com/v1'
-const API_ACCESS_TOKEN = process.env.API_ACCESS_TOKEN
+// const API_BASE_URL = process.env.API_BASE_URL || 'https://api.sembark.com/v1'
+// const API_ACCESS_TOKEN = process.env.API_ACCESS_TOKEN
 
 export const handler: Handler = async (event, context) => {
   const {
@@ -32,28 +32,35 @@ export const handler: Handler = async (event, context) => {
     trip_source: 'Website',
   }
 
-  let response: Response
-
-  try {
-    response = await fetch(`${API_BASE_URL}/trip-plan-requests`, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        accept: 'application/json',
-        authorization: `Bearer ${API_ACCESS_TOKEN}`,
-      },
-    })
-  } catch (err) {
-    return {
-      statusCode: err.statusCode || 500,
-      body: JSON.stringify(err),
-    }
-  }
-
   return {
     statusCode: 200,
     body: JSON.stringify({
-      data: response,
+      data,
     }),
   }
+
+  // let response: Response
+  //
+  // try {
+  //   response = await fetch(`${API_BASE_URL}/trip-plan-requests`, {
+  //     method: 'POST',
+  //     body: JSON.stringify(data),
+  //     headers: {
+  //       accept: 'application/json',
+  //       authorization: `Bearer ${API_ACCESS_TOKEN}`,
+  //     },
+  //   })
+  // } catch (err) {
+  //   return {
+  //     statusCode: err.statusCode || 500,
+  //     body: JSON.stringify(err),
+  //   }
+  // }
+  //
+  // return {
+  //   statusCode: 200,
+  //   body: JSON.stringify({
+  //     data: response,
+  //   }),
+  // }
 }
