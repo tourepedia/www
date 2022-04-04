@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "npm-run-all --parallel --print-label dev:*",
+    "netlify:dev": "netlify dev",
     "dev:html": "env-cmd -f .build.env.dev eleventy --serve",
     "dev:amp": "cross-env AMP=true env-cmd -f .build.env.dev eleventy --serve",
     "build:html": "eleventy",

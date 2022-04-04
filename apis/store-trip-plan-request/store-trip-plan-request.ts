@@ -1,5 +1,5 @@
 import { Handler } from '@netlify/functions'
-// import fetch, { Response } from 'node-fetch'
+import fetch, { Response } from 'node-fetch'
 
 const SEMBARK_API_BASE_URL = process.env.SEMBARK_API_BASE_URL
 const SEMBARK_API_ACCESS_TOKEN = process.env.SEMBARK_API_ACCESS_TOKEN
@@ -75,37 +75,33 @@ export const handler: Handler = async (event, context) => {
     trip_source: trip_source || 'Website',
   }
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      data,
-      SEMBARK_API_BASE_URL,
-      SEMBARK_API_ACCESS_TOKEN,
-    }),
+  let json: Record<string, unknown> = {}
+  let response: Response
+
+  try {
+    response = await fetch(`${SEMBARK_API_BASE_URL}/trip-plan-requests`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'content-type': 'application/json',
+        accept: 'application/json',
+        authorization: `Bearer ${SEMBARK_API_ACCESS_TOKEN}`,
+      },
+    })
+    const status_code = response.status
+    json = (await response.json()) as typeof json
+    if (status_code !== 201) {
+      throw json
+    }
+  } catch (err) {
+    return {
+      statusCode: err.status_code || err.statusCode || 500,
+      body: JSON.stringify(err),
+    }
   }
 
-  // let response: Response
-  //
-  // try {
-  //   response = await fetch(`${API_BASE_URL}/trip-plan-requests`, {
-  //     method: 'POST',
-  //     body: JSON.stringify(data),
-  //     headers: {
-  //       accept: 'application/json',
-  //       authorization: `Bearer ${API_ACCESS_TOKEN}`,
-  //     },
-  //   })
-  // } catch (err) {
-  //   return {
-  //     statusCode: err.statusCode || 500,
-  //     body: JSON.stringify(err),
-  //   }
-  // }
-  //
-  // return {
-  //   statusCode: 200,
-  //   body: JSON.stringify({
-  //     data: response,
-  //   }),
-  // }
+  return {
+    statusCode: response.status,
+    body: JSON.stringify(json),
+  }
 }
