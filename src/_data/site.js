@@ -20,6 +20,9 @@ module.exports = {
     'nePesoMtQ6t_pH0bRXV6vPsSdGiEMnRjcnF39ElMzPU',
   googleAnalyticsTrackingID:
     process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'UA-61051300-1',
+  googleRecaptchaSiteKey:
+    process.env.GOOGLE_RECAPTCHA_SITE_KEY ||
+    '6LftplgfAAAAAHolq5esBzb7wCvD94osAkPBHZSW',
   isAmp: process.env.AMP,
   ampDir: '/amp',
 }

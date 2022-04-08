@@ -146,6 +146,7 @@ priority: 1
             label: "Submit Query",
             type: "submit"
           } %}
+          <div id="js_grecaptcha_container"></div>
         </div>
         <div submit-success id="submit-success">
           <div id="plan-submited" style="margin: 6vh 0 15vh; text-align: center;">
@@ -165,6 +166,7 @@ priority: 1
           </div>
         </div>
         {%- if site.isAmp === undefined %}
+          <script src="https://www.google.com/recaptcha/api.js"></script>
           <script>
             if (typeof window !== "undefined") {
               (function (document) {
@@ -175,6 +177,7 @@ priority: 1
               })(document)
               function handleTripPlanSubmitRequest (e) {
                 e.preventDefault()
+
                 var formData = new FormData(e.target)
                 var url = e.target.getAttribute('action-xhr')
                 var json = {}
@@ -184,23 +187,37 @@ priority: 1
                   json[name] = value
                 }
                 disableFormSubmit()
-                storeTripPlanRequest(url, json)
-                .then(function () {
-                  sayThanks(json)
-                })
-                  .catch(function (error) {
-                    enableFormSubmit()
-                    window.alert(
-                      error.message
-                      + (error.errors ?
-                      "\n\n"
-                      + (Object.keys(error.errors)
-                        .reduce(function (allE, e) {
-                          return allE.concat(error.errors[e])
-                        }, [])
-                        .join(".\n")) : "")
-                    )
+
+                var grecaptchaWidgetId = grecaptcha.render(
+                  document.getElementById('js_grecaptcha_container'),
+                  {
+                    sitekey: "{{ site.googleRecaptchaSiteKey }}",
+                    size: "invisible"
+                  }
+                )
+
+                grecaptcha.execute(grecaptchaWidgetId).then(function(token) {
+                  json['grecaptcha_token'] = token
+                  return storeTripPlanRequest(url, json)
+                  .then(function () {
+                    sayThanks(json)
                   })
+                    .catch(function (error) {
+                      enableFormSubmit()
+                      window.alert(
+                        error.message
+                        + (error.errors ?
+                        "\n\n"
+                        + (Object.keys(error.errors)
+                          .reduce(function (allE, e) {
+                            return allE.concat(error.errors[e])
+                          }, [])
+                          .join(".\n")) : "")
+                      )
+                    })
+                })
+                .then(() => grecaptcha.reset(grecaptchaWidgetId))
+
               }
               function storeTripPlanRequest(url, data) {
                 return xhr("POST", url, Object.assign({}, data,{
