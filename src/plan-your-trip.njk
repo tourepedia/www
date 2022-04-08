@@ -188,36 +188,45 @@ priority: 1
                 }
                 disableFormSubmit()
 
+                var captchaContainer = document.getElementById('js_grecaptcha_container')
                 var grecaptchaWidgetId = grecaptcha.render(
-                  document.getElementById('js_grecaptcha_container'),
+                  captchaContainer,
                   {
                     sitekey: "{{ site.googleRecaptchaSiteKey }}",
-                    size: "invisible"
+                    size: "invisible",
+                    "expired-callback": function () {
+                      alert("Captcha expired. Please refresh and resubmit the form.")
+                    },
+                    "error-callback": function () {
+                       alert("Unable to validate captcha due the network connectivity.")
+                    },
+                    callback: function (token) {
+                      json['grecaptcha_token'] = token
+                      storeTripPlanRequest(url, json)
+                        .then(function () {
+                          sayThanks(json)
+                        })
+                        .catch(function (error) {
+                          enableFormSubmit()
+                          window.alert(
+                            error.message
+                            + (error.errors ?
+                            "\n\n"
+                            + (Object.keys(error.errors)
+                              .reduce(function (allE, e) {
+                                return allE.concat(error.errors[e])
+                              }, [])
+                              .join(".\n")) : "")
+                          )
+                        })
+                        .then(() => {
+                          grecaptcha.reset(grecaptchaWidgetId)
+                        })
+                    }
                   }
                 )
-
-                grecaptcha.execute(grecaptchaWidgetId).then(function(token) {
-                  json['grecaptcha_token'] = token
-                  return storeTripPlanRequest(url, json)
-                  .then(function () {
-                    sayThanks(json)
-                  })
-                    .catch(function (error) {
-                      enableFormSubmit()
-                      window.alert(
-                        error.message
-                        + (error.errors ?
-                        "\n\n"
-                        + (Object.keys(error.errors)
-                          .reduce(function (allE, e) {
-                            return allE.concat(error.errors[e])
-                          }, [])
-                          .join(".\n")) : "")
-                      )
-                    })
-                })
-                .then(() => grecaptcha.reset(grecaptchaWidgetId))
-
+                // now verify the token
+                grecaptcha.execute(grecaptchaWidgetId)
               }
               function storeTripPlanRequest(url, data) {
                 return xhr("POST", url, Object.assign({}, data,{

@@ -4,7 +4,6 @@ import fetch, { Response } from 'node-fetch'
 const SEMBARK_API_BASE_URL = process.env.SEMBARK_API_BASE_URL
 const SEMBARK_API_ACCESS_TOKEN = process.env.SEMBARK_API_ACCESS_TOKEN
 const GOOGLE_RECAPTCHA_SECRET = process.env.GOOGLE_RECAPTCHA_SECRET
-const APP_ENV = process.env.APP_ENV || 'production'
 
 export const handler: Handler = async (event, context) => {
   if (event.httpMethod.toLowerCase() !== 'post') {
@@ -113,6 +112,15 @@ export const handler: Handler = async (event, context) => {
       throw json
     }
   } catch (err) {
+    if (err.code === 'ECONNREFUSED') {
+      return {
+        statusCode: 503,
+        body: JSON.stringify({
+          message:
+            'Unable to connect to our servers. Please try after sometime',
+        }),
+      }
+    }
     return {
       statusCode: err.status_code || err.statusCode || 500,
       body: JSON.stringify(err),
@@ -127,9 +135,6 @@ export const handler: Handler = async (event, context) => {
 
 async function ensureNoRobots(grecaptcha_token: unknown) {
   if (!grecaptcha_token) {
-    if (APP_ENV === 'development') {
-      return 0 as const
-    }
     return {
       statusCode: 422,
       body: JSON.stringify({
@@ -143,28 +148,35 @@ async function ensureNoRobots(grecaptcha_token: unknown) {
   let response: Response
 
   try {
-    response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
-      body: JSON.stringify({
-        secret: GOOGLE_RECAPTCHA_SECRET,
-        response: String(grecaptcha_token),
-      }),
-      headers: {
-        'content-type': 'application/json',
-        accept: 'application/json',
+    response = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${GOOGLE_RECAPTCHA_SECRET}&response=${grecaptcha_token}`,
+      {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+        },
       },
-    })
+    )
     json = (await response.json()) as typeof json
-    if (!json.success) {
+    if (json && !json.success) {
       throw {
         status_code: 422,
         message: 'Captcha verification failed',
         errors: {
-          grecaptcha_token: json['error-codes'] || [],
+          grecaptcha_token: getCaptchaDescriptiveError(json['error-codes']),
         },
       }
     }
   } catch (err) {
+    if (err.code === 'ECONNREFUSED') {
+      return {
+        statusCode: 503,
+        body: JSON.stringify({
+          message:
+            'Unable to connect to our captcha verification service. Please try after sometime',
+        }),
+      }
+    }
     return {
       statusCode: err.status_code || err.statusCode || 422,
       body: JSON.stringify(err),
@@ -172,4 +184,27 @@ async function ensureNoRobots(grecaptcha_token: unknown) {
   }
   // all is well here
   return 0 as const
+}
+
+function getCaptchaDescriptiveError(codes?: unknown) {
+  if (codes && Array.isArray(codes)) {
+    return codes
+      .map((code: unknown) => {
+        if (typeof code === 'string') {
+          return CAPTCHA_ERROR_CODES[code]
+        }
+      })
+      .filter((x): x is string => Boolean(x))
+  }
+  return []
+}
+
+const CAPTCHA_ERROR_CODES = {
+  'missing-input-secret': 'The secret parameter is missing.',
+  'invalid-input-secret': 'The secret parameter is invalid or malformed.',
+  'missing-input-response': 'The response parameter is missing',
+  'invalid-input-response': 'The response parameter is invalid or malformed',
+  'bad-request': 'The request is invalid or malformed',
+  'timeout-or-duplicate':
+    'The response is no longer valid: either is too old or has been used previously',
 }
