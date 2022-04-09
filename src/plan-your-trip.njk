@@ -36,7 +36,7 @@ priority: 1
     <div style="margin: 40px auto;">
       <form
         id="plan-your-trip-form"
-        action-xhr="{{ site.apiUrl }}/trip-plan-requests"
+        action-xhr="{{ site.apiUrl }}/store-trip-plan-request"
         method="POST">
         <div class="form-inputs" id="plan-trip-form-inputs">
           <header style="margin-bottom: 40px">
@@ -146,6 +146,7 @@ priority: 1
             label: "Submit Query",
             type: "submit"
           } %}
+          <div id="js_grecaptcha_container"></div>
         </div>
         <div submit-success id="submit-success">
           <div id="plan-submited" style="margin: 6vh 0 15vh; text-align: center;">
@@ -165,6 +166,7 @@ priority: 1
           </div>
         </div>
         {%- if site.isAmp === undefined %}
+          <script src="https://www.google.com/recaptcha/api.js"></script>
           <script>
             if (typeof window !== "undefined") {
               (function (document) {
@@ -175,6 +177,7 @@ priority: 1
               })(document)
               function handleTripPlanSubmitRequest (e) {
                 e.preventDefault()
+
                 var formData = new FormData(e.target)
                 var url = e.target.getAttribute('action-xhr')
                 var json = {}
@@ -184,27 +187,51 @@ priority: 1
                   json[name] = value
                 }
                 disableFormSubmit()
-                storeTripPlanRequest(url, json)
-                .then(function () {
-                  sayThanks(json)
-                })
-                  .catch(function (error) {
-                    enableFormSubmit()
-                    window.alert(
-                      error.message
-                      + (error.errors ?
-                      "\n\n"
-                      + (Object.keys(error.errors)
-                        .reduce(function (allE, e) {
-                          return allE.concat(error.errors[e])
-                        }, [])
-                        .join(".\n")) : "")
-                    )
-                  })
+
+                var captchaContainer = document.getElementById('js_grecaptcha_container')
+                var grecaptchaWidgetId = grecaptcha.render(
+                  captchaContainer,
+                  {
+                    sitekey: "{{ site.googleRecaptchaSiteKey }}",
+                    size: "invisible",
+                    "expired-callback": function () {
+                      alert("Captcha expired. Please refresh and resubmit the form.")
+                    },
+                    "error-callback": function () {
+                       alert("Unable to validate captcha due the network connectivity.")
+                    },
+                    callback: function (token) {
+                      json['grecaptcha_token'] = token
+                      storeTripPlanRequest(url, json)
+                        .then(function () {
+                          sayThanks(json)
+                        })
+                        .catch(function (error) {
+                          enableFormSubmit()
+                          window.alert(
+                            error.message
+                            + (error.errors ?
+                            "\n\n"
+                            + (Object.keys(error.errors)
+                              .reduce(function (allE, e) {
+                                return allE.concat(error.errors[e])
+                              }, [])
+                              .join(".\n")) : "")
+                          )
+                        })
+                        .then(() => {
+                          grecaptcha.reset(grecaptchaWidgetId)
+                        })
+                    }
+                  }
+                )
+                // now verify the token
+                grecaptcha.execute(grecaptchaWidgetId)
               }
               function storeTripPlanRequest(url, data) {
                 return xhr("POST", url, Object.assign({}, data,{
                     start_date: localDateStringToUTCDateString(data.start_date),
+                    trip_source: 'Website',
                   })).then(async function (resp) {
                   if (resp.status === 201) {
                     return resp.json()
@@ -215,16 +242,18 @@ priority: 1
               }
 
               function xhr (method, url, data) {
+                var headers = new Headers({
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                })
                 return fetch(url, {
                   method: method,
-                  mode: 'cors',
-                  headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                  },
+                  headers: headers,
                   body: JSON.stringify(data),
                 })
               }
+
+              window.xhr = xhr;
 
               function localDateStringToUTCDateString(dateString) {
                 if (!dateString) return ''

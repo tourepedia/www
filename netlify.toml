@@ -1,0 +1,10 @@
+[functions]
+  directory = "apis"
+
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[context.test]
+  command = "npm run build_test"
+

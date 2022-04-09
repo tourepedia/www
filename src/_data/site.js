@@ -12,7 +12,7 @@ module.exports = {
   phoneNumber: process.env.BOOKINGS_PHONE_NUMBER || '+919166021917',
   email: process.env.BOOKINGS_EMAIL || 'bookings@tourepedia.com',
   supportEmail: process.env.SUPPORT_EMAIL || 'support@tourepedia.com',
-  apiUrl: process.env.API_URL || 'https://api.sembark.com/api',
+  apiUrl: publicUrl + '/.netlify/functions',
   keywords: ['travel', 'tour', 'trip'],
   version: process.env.npm_package_version,
   googleSiteVerification:
@@ -20,6 +20,9 @@ module.exports = {
     'nePesoMtQ6t_pH0bRXV6vPsSdGiEMnRjcnF39ElMzPU',
   googleAnalyticsTrackingID:
     process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'UA-61051300-1',
+  googleRecaptchaSiteKey:
+    process.env.GOOGLE_RECAPTCHA_SITE_KEY ||
+    '6LfDNV4fAAAAAPj0sxgNkfxmLJ_dAlEsJ7MzIvqd',
   isAmp: process.env.AMP,
   ampDir: '/amp',
 }
