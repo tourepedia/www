@@ -1,3 +1,20 @@
+# [1.17.0](https://github.com/tourepedia/www/compare/v1.16.3...v1.17.0) (2022-04-09)
+
+
+### Bug Fixes
+
+* **api:** update the api url ([1147640](https://github.com/tourepedia/www/commit/11476400d500ca22ab90d9bbf5dc63e8d6e9aa1e))
+* **captcha:** captcha api accepts parameters in different format ([8dc80ab](https://github.com/tourepedia/www/commit/8dc80ab8e73c6618c606eb5a2f09d63808e66069))
+* **captcha:** update production client key ([8f2b3b8](https://github.com/tourepedia/www/commit/8f2b3b82d2cf466a667929d70a7d0de05e9ad9a4))
+* **env:** update env and change the api response ([9176678](https://github.com/tourepedia/www/commit/9176678b895487e9768ef8a00d13605ef3044980))
+
+
+### Features
+
+* **api:** connect with api end to end ([ccfb600](https://github.com/tourepedia/www/commit/ccfb600af59213bd8dac4c17ab3c9fdecc9c9b7f))
+* **captcha:** add site captcha ([f0b42f8](https://github.com/tourepedia/www/commit/f0b42f8804ebcd2cec364cba89922e5cfc62bd18))
+* **plans:** update api endpoint ([ec394c1](https://github.com/tourepedia/www/commit/ec394c1578ab5f3e7598ee44e7b1ce9f03c9cb03))
+
 ## [1.16.3](https://github.com/tourepedia/www/compare/v1.16.2...v1.16.3) (2021-01-18)
 
 
