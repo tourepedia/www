@@ -22,7 +22,7 @@ module.exports = {
     process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'UA-61051300-1',
   googleRecaptchaSiteKey:
     process.env.GOOGLE_RECAPTCHA_SITE_KEY ||
-    '6LftplgfAAAAAHolq5esBzb7wCvD94osAkPBHZSW',
+    '6LfDNV4fAAAAAPj0sxgNkfxmLJ_dAlEsJ7MzIvqd',
   isAmp: process.env.AMP,
   ampDir: '/amp',
 }
