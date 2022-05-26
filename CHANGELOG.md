@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/tourepedia/www/compare/v1.17.0...v1.17.1) (2022-05-26)
+
+
+### Bug Fixes
+
+* **logo:** update logo ([e9be001](https://github.com/tourepedia/www/commit/e9be0012b245491979034f2ec5b73f6be7d8d86b))
+
 # [1.17.0](https://github.com/tourepedia/www/compare/v1.16.3...v1.17.0) (2022-04-09)
 
 
