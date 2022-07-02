@@ -4,6 +4,9 @@
   "description": "Tourepedia marking website",
   "main": "index.js",
   "private": true,
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "dev": "npm-run-all --parallel --print-label dev:*",
     "netlify:dev": "netlify dev",
@@ -34,9 +37,9 @@
   "homepage": "https://github.com/tourepedia/www#readme",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
-    "@ampproject/eleventy-plugin-amp": "^0.5.7",
-    "@commitlint/cli": "^17.0.1",
-    "@commitlint/config-conventional": "^17.0.0",
+    "@ampproject/eleventy-plugin-amp": "^0.5.8",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "classnames": "^2.3.1",
     "commitizen": "^4.2.4",
     "cross-env": "^7.0.3",
@@ -45,11 +48,11 @@
     "env-cmd": "^10.1.0",
     "html-minifier": "^4.0.0",
     "husky": "^8.0.1",
-    "lint-staged": "^12.4.2",
+    "lint-staged": "^13.0.3",
     "luxon": "^2.4.0",
-    "netlify-cli": "^10.3.1",
+    "netlify-cli": "^10.7.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.6.2"
+    "prettier": "^2.7.1"
   },
   "config": {
     "commitizen": {
@@ -94,8 +97,8 @@
   },
   "dependencies": {
     "@netlify/functions": "^1.0.0",
-    "@types/node": "^17.0.35",
-    "node-fetch": "^3.2.4",
-    "typescript": "^4.7.2"
+    "@types/node": "^18.0.0",
+    "node-fetch": "^3.2.6",
+    "typescript": "^4.7.4"
   }
 }
