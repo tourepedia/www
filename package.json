@@ -41,7 +41,7 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "classnames": "^2.3.1",
-    "commitizen": "^4.2.4",
+    "commitizen": "^4.3.0",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "eleventy-plugin-svg-contents": "^0.7.0",
