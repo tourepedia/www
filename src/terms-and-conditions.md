@@ -38,7 +38,7 @@ title: Terms and Conditions
 
 ## Terms and Conditions
 
-Starzone Tourepedia Ventures Pvt. Ltd. (henceforth referred to as
+Tourepedia Holidays Private Limited (henceforth referred to as
 “Tourepedia”, “Company”, “we”, “our” or “us”) is a tourism related
 company that provides customers with better travel outlines and
 trips. The site available to our customers from 25th June 2015
