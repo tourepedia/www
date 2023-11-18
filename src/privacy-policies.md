@@ -37,8 +37,7 @@ title: Privacy Policies
 
 ## Privacy Policies
 
-This Privacy Policy governs the manner in which Starzone
-Tourepedia Ventures Pvt. Ltd. (henceforth referred to as
+This Privacy Policy governs the manner in which Tourepedia Holidays Private Limited (henceforth referred to as
 "Tourepedia", "Company", "we", "our" or "us") collects, uses,
 maintains and discloses information collected from users (each, a
 "User") of the http://www.tourepedia.com website ("Site" or
