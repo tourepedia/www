@@ -196,8 +196,7 @@ serve the desires of the parties involved.
 
 No one else apart from the Company, in writing, can exercise the
 control to modify or make any amends to this document. In case
-of any dispute the decision taken by Starzone Tourepedia
-ventures Pvt. Ltd. shall hold unless challenged by a higher
+of any dispute the decision taken by Tourepedia Holidays Private Limited shall hold unless challenged by a higher
 authority in the country.
 
 ### Insurance
